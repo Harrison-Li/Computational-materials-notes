@@ -278,7 +278,7 @@ Machine learning algorithms often involve probability distributions over a very 
 
 Suppose we have three random variables: a, b and c. Suppose that a influences the value of b, and b influences the value of c, but that a and c are independent given b.
 $$
-(a,b,c)=p(c\mid a,b)p(a,b)=p(c\mid a,b)p(b\mid a)p(a)\rightarrow a,c \text{ is independent, }p(c\mid a,b)=p(c\mid b)\\
+p(a,b,c)=p(c\mid a,b)p(a,b)=p(c\mid a,b)p(b\mid a)p(a)\rightarrow a,c \text{ is independent, }p(c\mid a,b)=p(c\mid b)\\
 \mathbf{p(a,b,c) = p(a)p(b\mid a)p(c\mid b)}
 $$
 
@@ -301,7 +301,6 @@ e.g. $p(a,b,c,d,e) = p(a)p(b\mid a)p(c\mid a,b)p(d\mid b)p(e\mid c). $
 
 
 **Undirected** models use graphs with undirected edges, and they represent factorizations into a set of functions (not not probability distributions of any kind). Any set of nodes that are all connected to each other in $\mathcal{G}$ is called a clique. Each clique $C^{(i)}$ in an undirected model is associated with a factor $\phi^{(i)}(\mathcal{C}^{(i)})$.
-
 
 $$
 p(x)=\frac{1}{Z}\prod_i\phi^{(i)}(\mathcal{C}^{(i)})
