@@ -113,6 +113,7 @@ $L=\mathbb{E}_q[-\log{p(\textbf{x}_T)}-\sum_{t=1}^T\log\frac{p_\theta(\textbf{x}
 
 $L=\mathbb{E}_q[-\log{p_\theta(\textbf{x}_T)}+\log{q(\textbf{x}_T|\textbf{x}_0)}-\sum_{t>1}^T\log\frac{p_\theta(\textbf{x}_{t-1}|\textbf{x}_{t})}{q(\textbf{x}_{t-1}|\textbf{x}_{t},\textbf{x}_0)}-\log{\frac{p_\theta(\textbf{x}_0|\textbf{x}_1)}{q(\textbf{x}_1|\textbf{x}_0)}}]\\=\mathbb{E}_q[-\log{p_\theta(\textbf{x}_T)}+\log{q(\textbf{x}_T|\textbf{x}_0)}-\sum_{t>1}^T\log\frac{p_\theta(\textbf{x}_{t-1}|\textbf{x}_{t})}{q(\textbf{x}_{t-1}|\textbf{x}_{t},\textbf{x}_0)}-\log{\frac{p_\theta(\textbf{x}_0|\textbf{x}_1)}{q(\textbf{x}_1|\textbf{x}_0)}}]$
 
+
 $$
 L=\mathbb{E}_q \left[
 \underbrace{D_{\mathrm{KL}}\left(q(\mathbf{x}_T|\mathbf{x}_0) \,\|\, p(\mathbf{x}_T)\right)}_{L_T}
