@@ -73,6 +73,7 @@ Sometimes we know the probability distribution over a set of variables and we wa
 e.g. Suppose we have discrete random variables x and y, and we know $P(x,y)$. 
 
 For discrete random variables:
+
 $\forall x \in \text{x}, P(\text{x}=x)=\sum_yP(x=\text{x},y=\text{y})$
 
 For continuous variables:
@@ -82,28 +83,23 @@ $p(x)=\int p(x,y)dy$
 ## 3.4. Conditional Probability
 
 In many cases, we are interested in the probability of some event, given that some other event has happened. This is called a conditional probability. 
-$$
-P(\text{y} = y \mid \text{x} = x) = \frac{P(\text{y} = y, \text{x} = x)}{P(\text{x} = x)}
-$$
+
+$$P(\text{y} = y \mid \text{x} = x) = \frac{P(\text{y} = y, \text{x} = x)}{P(\text{x} = x)}$$
 The conditional probability is only defined when $P(\text{x} = x) >0$.
+
 
 ### 3.4.1. The Chain Rule of Conditional Probabilities
 
 Any joint probability distribution over many random variables may be decomposed into conditional distributions over only one variable:
-$$
-P(x^{(1)}, \ldots,x^{(n)}) = P({x}^{(1)}) \prod_{i=2}^n P(x^{(i)} \mid x^{(1)}, \ldots, x^{(i-1)}).
-$$
+
+$$P(x^{(1)}, \ldots,x^{(n)}) = P({x}^{(1)}) \prod_{i=2}^n P(x^{(i)} \mid x^{(1)}, \ldots, x^{(i-1)}).$$
 
 ### 3.4.2. Independence and Conditional Independence
 
 Two random variables x and y are independent if their probability distribution can be expressed as a product of two factors, one involving only x and one involving only y:
-$$
-\forall x\in \text{x},y\in \text{y},\quad p(\text{x}=x,\text{y}=y)=p(\text{x}=x)p(\text{y}=y)
-$$
+$$\forall x\in \text{x},y\in \text{y},\quad p(\text{x}=x,\text{y}=y)=p(\text{x}=x)p(\text{y}=y)$$
 Two random variables x and y are conditionally independent given a random variable z if the conditional probability distribution over x and y factorizes in this way for every value of z:
-$$
-\forall x\in\text{x},y\in \text{y},z\in \text{z},\quad p(\text{x}=x,\text{y}=y\mid\text{z}=z)=p(\text{x}=x\mid\text{z}=z)p(\text{y}=y\mid\text{z}=z)
-$$
+$$\forall x\in\text{x},y\in \text{y},z\in \text{z},\quad p(\text{x}=x,\text{y}=y\mid\text{z}=z)=p(\text{x}=x\mid\text{z}=z)p(\text{y}=y\mid\text{z}=z)$$
 Notation of the **independence** and **conditional independence** 
 
 $\text{x}\perp \text{y}$ means x and y are independent.
@@ -117,13 +113,12 @@ $\text{x}\perp\text{y}\mid\text{z}$ means that x and y are conditionally indepen
 Expectation is the average, or mean value, that the function f(x) with respect to a probability distribution P(x) takes on when x is drawn from P.
 
 For <u>discrete variables</u>:
-$$
-\mathbb{E}_{x\sim P}[f(x)]=\sum_x P(x)f(x)
-$$
+
+$$\mathbb{E}_{x\sim P}[f(x)]=\sum_x P(x)f(x)$$
+
 For <u>continuous variables</u>:
-$$
-\mathbb{E}_{x\sim p}[f(x)]=\int p(x)f(x)dx
-$$
+
+$$\mathbb{E}_{x\sim p}[f(x)]=\int p(x)f(x)dx$$
 
 > [!NOTE]
 >
@@ -133,19 +128,17 @@ $$
 **Variance**
 
 The variance gives a measure of how much the values of a function of a random variable x vary as we sample different values of x from its probability distribution:
-$$
-\text{Var}(f(x))=\mathbb{E}[(f(x)-\mathbb{E}[f(x)])^2]
-$$
+
+$$\text{Var}(f(x))=\mathbb{E}[(f(x)-\mathbb{E}[f(x)])^2]$$
+
 When the variance is low, the values of f(x) cluster near their expected value. The square root of the variance is known as the **standard deviation**.
-$$
-std(f(x))=\sqrt{\mathbb{E}[(f(x)-\mathbb{E}[f(x)])^2]}
-$$
+
+$$std(f(x))=\sqrt{\mathbb{E}[(f(x)-\mathbb{E}[f(x)])^2]}$$
+
 **Covariance**
 
 The covariance gives some sense of how much two values are linearly related to each other, as well as the scale of these variables:
-$$
-\text{Cov}(f(x),g(y))=\mathbb{E}[(f(x)-\mathbb{E}[f(x)])(g(y)-\mathbb{E}[g(y)])]
-$$
+$$\text{Cov}(f(x),g(y))=\mathbb{E}[(f(x)-\mathbb{E}[f(x)])(g(y)-\mathbb{E}[g(y)])]$$
 High absolute values of the covariance mean that the values change very much and are both far from their respective means at the same time.
 
 - $\text{Cov}(x,y)>0$, positive proportion relation 
@@ -160,13 +153,8 @@ Normalize the contribution of each variable in order to measure only how much th
 ### 3.6.1. Bernoulli Distribution
 
 The **Bernoulli distribution **is a distribution over a single binary random variable. It is controlled by a single parameter φ∈[0,1], which gives the probability of the random variable being equal to 1. It has the following properties:
-$$
-P(\text{x}=1)=\phi\\
-P(\text{x}=0)=1-\phi\\
-P(\text{x}=x)=\phi^x(1-\phi)^{1-x}\\
-\mathbb{E}_\text{x}[\text{x}]=\phi\\
-\text{Var}_\text{x}(\text{x})=\phi(1-\phi)
-$$
+
+$$P(\text{x}=1)=\phi\\ P(\text{x}=0)=1-\phi\\ P(\text{x}=x)=\phi^x(1-\phi)^{1-x}\\ \mathbb{E}_\text{x}[\text{x}]=\phi\\ \text{Var}_\text{x}(\text{x})=\phi(1-\phi)$$
 
 ### 3.6.2. Multinoulli Distribution
 
@@ -175,9 +163,8 @@ The multinoulli, or categorical, distribution is a distribution over a single di
 ### 3.6.3. Gaussian Distribution
 
 The most commonly used distribution over real numbers is the **normal distribution**, also known as the **Gaussian distribution**:
-$$
-\mathcal{N}(x;\mu,\sigma^2)=\sqrt{\frac{1}{2\pi\sigma^2}}\exp(-\frac{1}{2\sigma^2}(x-\mu)^2)
-$$
+
+$$\mathcal{N}(x;\mu,\sigma^2)=\sqrt{\frac{1}{2\pi\sigma^2}}\exp(-\frac{1}{2\sigma^2}(x-\mu)^2)$$
 
 - $\mu$ is the mean of the distribution:$\mathbb{E}[x]=\mu$
 - $\sigma$ standard deviation of the distribution, and $\sigma^2$ is the variance
@@ -187,9 +174,8 @@ $$
 When the normal distribution generalizes to $\mathbb{R}^n$​, it may be parametrized with a positive
 
 definite symmetric matrix $\Sigma$
-$$
-\mathcal{N}(x;\mu,\Sigma)\sqrt{\frac{1}{(2\pi)^n\det(\Sigma)}}\exp(-\frac{1}{2}(x-\mu)^\top\Sigma^{-1}(x-\mu))
-$$
+
+$$\mathcal{N}(x;\mu,\Sigma)\sqrt{\frac{1}{(2\pi)^n\det(\Sigma)}}\exp(-\frac{1}{2}(x-\mu)^\top\Sigma^{-1}(x-\mu))$$
 
 - parameter $\mu$ still gives the mean of the distribution
 - parameter $\Sigma$ gives the covariance matrix of the distribution.
@@ -199,38 +185,32 @@ $$
 **Exponential distribution**
 
 In the context of deep learning, we often want to have a probability distribution with a sharp point at x = 0. To accomplish this, we can use the **exponential distribution**:
-$$
-p(z;\lambda)=\lambda\mathbf{1}_{x\ge0}\exp(-\lambda x)
-$$
+
+$$p(z;\lambda)=\lambda\mathbf{1}_{x\ge0}\exp(-\lambda x)$$
+
 The exponential distribution uses the indicator function $\mathbf{1}_{x\ge0}$ to assign probability zero to all negative values of x.
 
 **Laplace distribution**
 
 A closely related probability distribution that allows us to place a sharp peak of probability mass at an arbitrary point $\mu$ is the Laplace distribution
-$$
-\text{Laplace}(x;\mu,\gamma)=\frac{1}{2\gamma}\exp(-\frac{|x-\mu|}{\gamma})
-$$
+$$\text{Laplace}(x;\mu,\gamma)=\frac{1}{2\gamma}\exp(-\frac{|x-\mu|}{\gamma})$$
 
 ### 3.6.5. The Dirac Distribution and Empirical Distribution
 
 In some cases, we wish to specify that all the mass in a probability distribution clusters around a single point. This can be accomplished by defining a PDF using the **Dirac delta function**, $\delta(x)$:
-$$
-p(x)=\delta(x-\mu)
-$$
+$$p(x)=\delta(x-\mu)$$
 The Dirac delta function is defined such that it is <u>zero</u> valued everywhere except 0, yet integrates to 1.
 
 A common use of the Dirac delta distribution is as a component of an empirical distribution,
-$$
-\hat{p}(x)=\frac{1}{m}\sum_{i=1}^m\delta(x-x^{(i)})
-$$
+
+$$\hat{p}(x)=\frac{1}{m}\sum_{i=1}^m\delta(x-x^{(i)})$$
+
 which puts probability mass $\frac{1}{m}$ on each of the $m$ points $x^{(1)}\ldots x^{(m)}$, forming a given data set or collection of samples. The Dirac delta distribution is only necessary to define the empirical distribution over continuous variables. For discrete variables, the situation is simpler: an empirical distribution can be conceptualized as a multinoulli distribution, with a probability associated with each possible input value that is simply equal to the **empirical frequency** of that value in the training set.
 
 ### 3.6.6. Mixtures of Distributions
 
 One common way of combining distributions is to construct a mixture distribution. A mixture distribution is made up of several component distributions. On each trial, the choice of which component distribution should generate the sample is determined by sampling a component identity from a multinoulli distribution:
-$$
-P(\text{x})=\sum_iP(c=i)P(\text{x}\mid c=i)
-$$
+$$P(\text{x})=\sum_iP(c=i)P(\text{x}\mid c=i)$$
 where $P(c)$ is the multinoulli distribution over component identities.
 
 ## 3.7. Useful Properties of Common Functions
@@ -239,17 +219,13 @@ Certain functions arise often while working with probability distributions, espe
 
 ### 3.7.1. Logistic sigmoid
 
-$$
-\sigma(x)=\frac{1}{1+\exp{(-x)}}
-$$
+$$\sigma(x)=\frac{1}{1+\exp{(-x)}}$$
 
 ![image-20250124164504682](/Users/harrison-li/Library/Application Support/typora-user-images/image-20250124164504682.png)
 
 ### 3.7.2. Softplus function
 
-$$
-\zeta(x)=\log{(1+\exp{(x)})}
-$$
+$$\zeta(x)=\log{(1+\exp{(x)})}$$
 
 The softplus function can be useful for producing the β or σ parameter of a normal distribution because its range is (0,∞). 
 
@@ -258,9 +234,9 @@ The softplus function can be useful for producing the β or σ parameter of a no
 ## 3.8. Bayes' Rule
 
 To find $P(x|y)$ when we already know the $p(y|x)$ and $p(x)$
-$$
-P(x|y)=\frac{P(x)P(y|x)}{P(y)}
-$$
+
+$$P(x|y)=\frac{P(x)P(y|x)}{P(y)}$$
+
 Even $P(y)$ appears in the formula, we can substituted it: $P(y)=\sum_xP(y|x)P(x)$
 
 
@@ -277,10 +253,14 @@ Machine learning algorithms often involve probability distributions over a very 
 
 
 Suppose we have three random variables: a, b and c. Suppose that a influences the value of b, and b influences the value of c, but that a and c are independent given b.
+<<<<<<< HEAD
 $$
 p(a,b,c)=p(c\mid a,b)p(a,b)=p(c\mid a,b)p(b\mid a)p(a)\rightarrow a,c \text{ is independent, }p(c\mid a,b)=p(c\mid b)\\
 \mathbf{p(a,b,c) = p(a)p(b\mid a)p(c\mid b)}
 $$
+=======
+$$(a,b,c)=p(c\mid a,b)p(a,b)=p(c\mid a,b)p(b\mid a)p(a)\rightarrow a,c \text{ is independent, }p(c\mid a,b)=p(c\mid b)\\ \mathbf{p(a,b,c) = p(a)p(b\mid a)p(c\mid b)}$$
+>>>>>>> 9e92e5898288c4afc5226160ce529cdfac828dfc
 
 > [!NOTE]
 >
@@ -289,9 +269,9 @@ $$
 Here, we use the word “graph” in the sense of graph theory: a set of vertices that may be connected to each other with edges. When we represent the factorization of a probability distribution with a graph, we call it a **structured probabilistic model**, or **graphical model**.
 
 **Directed** models use graphs with directed edges, and they represent factorizations into conditional probability distributions. Specifically, a directed model contains one factor for every random variable $x_i$ in the distribution, and that factor consists of the conditional distribution over $x_i$ given the parents of $x_i$, denoted $Pa_\mathcal{G}(x_i)$:
-$$
-p(x)=\prod_ip(x_i\mid Pa_\mathcal{G}(x_i))
-$$
+
+$$p(x)=\prod_ip(x_i\mid Pa_\mathcal{G}(x_i))$$
+
 <img src="/Users/harrison-li/Library/Application Support/typora-user-images/image-20250126170649531.png" alt="image-20250126170649531" style="zoom:50%;" />
 
 e.g. $p(a,b,c,d,e) = p(a)p(b\mid a)p(c\mid a,b)p(d\mid b)p(e\mid c). $
@@ -302,9 +282,15 @@ e.g. $p(a,b,c,d,e) = p(a)p(b\mid a)p(c\mid a,b)p(d\mid b)p(e\mid c). $
 
 **Undirected** models use graphs with undirected edges, and they represent factorizations into a set of functions (not not probability distributions of any kind). Any set of nodes that are all connected to each other in $\mathcal{G}$ is called a clique. Each clique $C^{(i)}$ in an undirected model is associated with a factor $\phi^{(i)}(\mathcal{C}^{(i)})$.
 
+<<<<<<< HEAD
 $$
 p(x)=\frac{1}{Z}\prod_i\phi^{(i)}(\mathcal{C}^{(i)})
 $$
+=======
+
+$$p(x)=\frac{1}{Z}\prod_i\phi^{(i)}(\mathcal{C}^{(i)})$$
+
+>>>>>>> 9e92e5898288c4afc5226160ce529cdfac828dfc
 <img src="/Users/harrison-li/Library/Application Support/typora-user-images/image-20250126173020950.png" alt="image-20250126173020950" style="zoom:50%;" />
 
 e.g. $p(a,b,c,d,e)=\frac{1}{Z}\phi^{(1)}(a,b,c)\phi^{(2)}p(b,d)\phi^{(3)}p(c,e)$
@@ -324,23 +310,24 @@ We would like to quantify information in a way that formalizes this intuition.
 - Independent events should have additive information. For example, finding out that a tossed coin has come up as heads twice should convey twice as much information as finding out that a tossed coin has come up as heads once.
 
 **Self-information**
-$$
-I(x)=-\log{P(x)}
-$$
+
+$I(x)=-\log{P(x)}$
+
 But one problem comes out, if x is continuous instead of discrete, we apply this self information theory, some properties will get lost. Eg. An event with unit density(p(x)=1), still have 0 information, despite this event is not guaranteed to occur.
 
 **Shannon entropy**
-$$
-H(x)=\mathbb{E}_{x\sim P}[I(x)]=-\mathbb{E}_{x\sim P}[\log{P(x)}]
-$$
+
+
+$$D_{KL}(P \| Q) = \mathbb{E}_{X \sim P} \left[ \log \left( \frac{P(x)}{Q(x)} \right) \right]$$
+
 Self-information deals only with a single outcome. We can quantify the amount of uncertainty in an entire probability distribution using the Shannon entropy, also denoted $H(P)$.
 
 ![image-20250125171814905](/Users/harrison-li/Library/Application Support/typora-user-images/image-20250125171814905.png)
 
  **Kullback-Leibler (KL) divergence:**
-$$
-D_{KL}(P||Q)=\mathbb{E}_{X\sim P}[\log{\frac{P(x)}{Q(x)}}]=\mathbb{E}_{X\sim P}[\log{P(x)}-\log{Q(x)}]
-$$
+ 
+$$D_{KL}(P \parallel Q) = \mathbb{E}_{X \sim P} \left[ \log \frac{P(x)}{Q(x)} \right] = \mathbb{E}_{X \sim P} \left[ \log P(x) - \log Q(x) \right]$$
+
 The KL divergence has many useful properties, most notably being non-negative. The KL divergence is 0 if and only if P and Q are the same distribution in the case of discrete variables, or equal “almost everywhere” in the case of continuous variables. 
 
 # 5. Numerical Computation
@@ -358,9 +345,8 @@ In ML, we need to represent infinitely many real numbers with a finite number of
 To stabilize the underflow or the overflow, normalization should be applied to reduce the magnitude.
 
 **Softmax function**
-$$
-\text{softmax}(x)_i=\frac{\exp{x_i}}{\sum_{j=1}^n\exp{x_j}}
-$$
+
+$$\text{softmax}(x)_i=\frac{\exp{x_i}}{\sum_{j=1}^n\exp{x_j}}$$
 
 ## 5.2. Poor Conditioning
 
@@ -373,9 +359,9 @@ $\Delta x=A^{-1}\Delta b,\rightarrow ||\Delta x||\leq||A^{-1}||\cdot||\Delta b||
 \frac{||\Delta x||}{||x||}\leq ||A||\cdot ||A^{-1}||\frac{||\Delta b||}{||b||}$
 
 **Condition number**
-$$
-\kappa(A)=||A||\cdot||A^{-1}||=\max_{i,j} \left| \frac{\lambda_i}{\lambda_j}\right|.
-$$
+
+$$\kappa(A)=||A||\cdot||A^{-1}||=\max_{i,j} \left| \frac{\lambda_i}{\lambda_j}\right|.$$
+
 This is the ratio of the magnitude of the largest and smallest eigenvalue. When this number is large, matrix inversion is particularly sensitive to error in the input.
 
 ## 5.3. Gradient-Based Optimization
@@ -402,16 +388,16 @@ A technique to minimize $f(x)$ by moving $x$ in small steps opposite to the sign
 
 $f(x-\epsilon \text{sign}(f'(x)))< f(x)\text{ for small }\epsilon$ 
 
-$\text{sign}(x)=\left\{\begin{aligned}-1,\quad \text{if }x<0\\0,\quad \text{if }x=0\\1,\quad \text{if }x>0\end{aligned}\right.$
+$$\text{sign}(x)=\left\{\begin{aligned}-1,\quad \text{if }x<0\\0,\quad \text{if }x=0\\1,\quad \text{if }x>0\end{aligned}\right.$$
 
 For functions with multiple inputs, we must make use of the concept of partial derivatives. The partial derivative $\frac{\partial }{\partial x_i}f(x)$ measures how $f$ changes as only the variable $x_i$ increases at point $x$. The gradient generalizes the notion of derivative to the case where the derivative is with respect to a vector: the gradient of $f$ is the vector containing all the partial derivatives, denoted $\nabla xf(x)$. Element $i$ of the gradient is the partial derivative of $f$ with respect to $x_i$. In multiple dimensions, critical points are points where every element of the gradient is equal to zero.
 
 The **directional derivative** in direction $u$ (a unit vector) is the slope of the function $f$ in direction $u$.
 
 **gradient descent/method of steepest descent**
-$$
-x'=x-\epsilon\nabla_x f(x)
-$$
+
+$$x'=x-\epsilon\nabla_x f(x)$$
+
 Where:
 
 - $\epsilon$ is the learning rate, a positive scalar determining the size of the step.
