@@ -6,9 +6,9 @@
 
 - **Manifold learning**
 
-​	![mls3 0804](https://learning.oreilly.com/api/v2/epubs/urn:orm:book:9781098125967/files/assets/mls3_0804.png)
+​	![mls3 0804](assets/mls3_0804.png)
 
-![mls3 0805](https://learning.oreilly.com/api/v2/epubs/urn:orm:book:9781098125967/files/assets/mls3_0805.png)
+![mls3 0805](assets/mls3_0805.png)
 
 ​	left figure is the projection method, while the right one is the unrolling one. Simply projecting onto a plane (e.g., by dropping $x_3$) would squash different layers of the Swiss roll together.
 

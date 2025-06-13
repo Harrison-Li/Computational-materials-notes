@@ -15,7 +15,7 @@ $\large\left\{\begin{aligned}Encoder\\\\Decoder\end{aligned}\right.$
 
 ​	**Decoder: **By given the $z$ ,the decoder can generates an output sequence $(y_1,y_2,...,y_n)$ of symbols one element at a time(this process convert the vector to the symbols type.)
 
-![aa](/Users/harrison-li/Library/Application Support/typora-user-images/image-20240718211213841.png)
+![aa](assets/image-20240718211213841.png)
 
 ​				<font size=2.5>Figure 1: The Transformer - model architecture.</font>
 
@@ -34,7 +34,7 @@ The machine learning-based **attention** method simulates how human attention wo
 - Soft weights: Can adapt and change with each use of the model.
 - Hard weights: They are predetermined and fixed during training
 
-![image-20240719152156793](/Users/harrison-li/Library/Application Support/typora-user-images/image-20240719152156793.png)
+![image-20240719152156793](assets/image-20240719152156793.png)
 
 **Softmax activation function**
 

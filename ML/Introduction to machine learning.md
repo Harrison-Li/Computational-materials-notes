@@ -33,9 +33,9 @@ $$
 
 We can control whether a model is more likely to overfit or underfit by altering its **capacity**. Informally, <u>a model’s capacity is its ability to fit a wide variety of functions.</u> Models with low capacity may struggle to fit the training set. Models with high capacity can overfit by memorizing properties of the training set that do not serve them well on the test set.
 
-![image-20250127172404574](/Users/harrison-li/Library/Application Support/typora-user-images/image-20250127172404574.png)
+![image-20250127172404574](assets/image-20250127172404574.png)
 
- ![image-20250210205609805](/Users/harrison-li/Library/Application Support/typora-user-images/image-20250210205609805.png)
+ ![image-20250210205609805](assets/image-20250210205609805.png)
 
 > [!NOTE]
 >
@@ -56,7 +56,7 @@ $$
 
 we minimize a sum comprising both the mean squared error on the training and a criterion $J(w)$ that expresses a preference for the weights to have smaller squared $L^2$ norm. 
 
-![image-20250212200042556](/Users/harrison-li/Library/Application Support/typora-user-images/image-20250212200042556.png)
+![image-20250212200042556](assets/image-20250212200042556.png)
 
 ## 2.3. Hyperparameters and Validation Sets
 

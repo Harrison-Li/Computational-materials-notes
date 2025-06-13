@@ -1,6 +1,6 @@
 # MolGPT
 
-![image-20240805210342420](/Users/harrison-li/Library/Application Support/typora-user-images/image-20240805210342420.png)
+![image-20240805210342420](assets/image-20240805210342420.png)
 
 ## Methods
 
@@ -21,7 +21,7 @@ MOSES or the GuacaMol
 
 **GuacaMol: **A subset of the ChEMBL 24 database that contains 1.6 million molecules. 
 
-![image-20240808150346615](/Users/harrison-li/Library/Application Support/typora-user-images/image-20240808150346615.png)
+![image-20240808150346615](assets/image-20240808150346615.png)
 
 ### The architecture of Transformer
 

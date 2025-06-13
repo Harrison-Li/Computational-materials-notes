@@ -1,6 +1,6 @@
 # Junction Tree VAE
 
-<img src="/Users/harrison-li/Library/Application Support/typora-user-images/image-20250105160654916.png" alt="image-20250105160654916" style="zoom:67%;" />
+<img src="assets/image-20250105160654916.png" alt="image-20250105160654916" style="zoom:67%;" />
 
 **Workflow:**  Molecular graph $G$  is first decomposed into its junction tree $\mathcal{T}_G$, where each colored node in the tree represents a substructure in the molecule. We then encode both the tree and graph into their latent embeddings $z_\mathcal{T}$ and $z_G$. To decode the molecule, we first reconstruct junction tree from $z_\mathcal{T}$ , and then assemble nodes in the tree back to the original molecule.
 
@@ -37,7 +37,7 @@ First encode the latent representation of $G$ by a graph message passing network
 
 For a Graph:
 
-![image-20250105171747376](/Users/harrison-li/Library/Application Support/typora-user-images/image-20250105171747376.png)
+![image-20250105171747376](assets/image-20250105171747376.png)
 
 $G=(V,E)$, 
 
@@ -64,7 +64,7 @@ This tree encoder plays two roles in our framework. First, it is used to compute
 
 ## Tree Decoder
 
-<img src="/Users/harrison-li/Library/Application Support/typora-user-images/image-20250106152346842.png" alt="image-20250106152346842" style="zoom:67%;" />
+<img src="assets/image-20250106152346842.png" alt="image-20250106152346842" style="zoom:67%;" />
 
 Decode a junction tree $\mathcal{T}$ from its encoding $\mathcal{z}_T$ with a tree structured decoder.
 

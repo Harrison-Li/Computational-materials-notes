@@ -4,7 +4,7 @@
 
 The **Jaccard index**, also known as the **Jaccard similarity coefficient**, is a statistic used for gauging the similarity and diversity of sample sets.
 
-<img src="/Users/harrison-li/Library/Application Support/typora-user-images/image-20240911132638692.png" alt="image-20240911132638692" style="zoom: 50%;"/>
+<img src="assets/image-20240911132638692.png" alt="image-20240911132638692" style="zoom: 50%;"/>
 
 The Jaccard coefficient measures similarity between finite sample sets and is defined as the size of the intersection divided by the size of the union of the sample sets:
 

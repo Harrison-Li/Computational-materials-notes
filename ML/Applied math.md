@@ -2,7 +2,7 @@
 
 **Feature:** Each piece of information included in the representation
 
-<img src="/Users/harrison-li/Library/Application Support/typora-user-images/image-20250117140611747.png" alt="image-20250117140611747" style="zoom:50%;" />
+<img src="assets/image-20250117140611747.png" alt="image-20250117140611747" style="zoom:50%;" />
 
 Example of diﬀerent representations: suppose we want to separate two categories of data by drawing a line between them in a scatterplot. In the plot on the left, we represent some data using Cartesian coordinates, and the task is impossible. In the plot on the right, we represent the data with polar coordinates and the task becomes simple to solve with a vertical line. (Figure produced in collaboration with David Warde-Farley.)
 
@@ -221,7 +221,7 @@ Certain functions arise often while working with probability distributions, espe
 
 $$\sigma(x)=\frac{1}{1+\exp{(-x)}}$$
 
-![image-20250124164504682](/Users/harrison-li/Library/Application Support/typora-user-images/image-20250124164504682.png)
+![image-20250124164504682](assets/image-20250124164504682.png)
 
 ### 3.7.2. Softplus function
 
@@ -229,7 +229,7 @@ $$\zeta(x)=\log{(1+\exp{(x)})}$$
 
 The softplus function can be useful for producing the β or σ parameter of a normal distribution because its range is (0,∞). 
 
-![image-20250124165241098](/Users/harrison-li/Library/Application Support/typora-user-images/image-20250124165241098.png)
+![image-20250124165241098](assets/image-20250124165241098.png)
 
 ## 3.8. Bayes' Rule
 
@@ -253,14 +253,15 @@ Machine learning algorithms often involve probability distributions over a very 
 
 
 Suppose we have three random variables: a, b and c. Suppose that a influences the value of b, and b influences the value of c, but that a and c are independent given b.
-<<<<<<< HEAD
+
 $$
 p(a,b,c)=p(c\mid a,b)p(a,b)=p(c\mid a,b)p(b\mid a)p(a)\rightarrow a,c \text{ is independent, }p(c\mid a,b)=p(c\mid b)\\
 \mathbf{p(a,b,c) = p(a)p(b\mid a)p(c\mid b)}
 $$
-=======
+
 $$(a,b,c)=p(c\mid a,b)p(a,b)=p(c\mid a,b)p(b\mid a)p(a)\rightarrow a,c \text{ is independent, }p(c\mid a,b)=p(c\mid b)\\ \mathbf{p(a,b,c) = p(a)p(b\mid a)p(c\mid b)}$$
->>>>>>> 9e92e5898288c4afc5226160ce529cdfac828dfc
+
+
 
 > [!NOTE]
 >
@@ -272,7 +273,7 @@ Here, we use the word “graph” in the sense of graph theory: a set of vertice
 
 $$p(x)=\prod_ip(x_i\mid Pa_\mathcal{G}(x_i))$$
 
-<img src="/Users/harrison-li/Library/Application Support/typora-user-images/image-20250126170649531.png" alt="image-20250126170649531" style="zoom:50%;" />
+<img src="assets/image-20250126170649531.png" alt="image-20250126170649531" style="zoom:50%;" />
 
 e.g. $p(a,b,c,d,e) = p(a)p(b\mid a)p(c\mid a,b)p(d\mid b)p(e\mid c). $
 
@@ -281,17 +282,16 @@ e.g. $p(a,b,c,d,e) = p(a)p(b\mid a)p(c\mid a,b)p(d\mid b)p(e\mid c). $
 
 
 **Undirected** models use graphs with undirected edges, and they represent factorizations into a set of functions (not not probability distributions of any kind). Any set of nodes that are all connected to each other in $\mathcal{G}$ is called a clique. Each clique $C^{(i)}$ in an undirected model is associated with a factor $\phi^{(i)}(\mathcal{C}^{(i)})$.
-
-<<<<<<< HEAD
 $$
 p(x)=\frac{1}{Z}\prod_i\phi^{(i)}(\mathcal{C}^{(i)})
 $$
-=======
-
 $$p(x)=\frac{1}{Z}\prod_i\phi^{(i)}(\mathcal{C}^{(i)})$$
 
->>>>>>> 9e92e5898288c4afc5226160ce529cdfac828dfc
-<img src="/Users/harrison-li/Library/Application Support/typora-user-images/image-20250126173020950.png" alt="image-20250126173020950" style="zoom:50%;" />
+
+
+
+
+<img src="assets/image-20250126173020950.png" alt="image-20250126173020950" style="zoom:50%;" />
 
 e.g. $p(a,b,c,d,e)=\frac{1}{Z}\phi^{(1)}(a,b,c)\phi^{(2)}p(b,d)\phi^{(3)}p(c,e)$
 
@@ -322,10 +322,10 @@ $$D_{KL}(P \| Q) = \mathbb{E}_{X \sim P} \left[ \log \left( \frac{P(x)}{Q(x)} \r
 
 Self-information deals only with a single outcome. We can quantify the amount of uncertainty in an entire probability distribution using the Shannon entropy, also denoted $H(P)$.
 
-![image-20250125171814905](/Users/harrison-li/Library/Application Support/typora-user-images/image-20250125171814905.png)
+![image-20250125171814905](assets/image-20250125171814905.png)
 
  **Kullback-Leibler (KL) divergence:**
- 
+
 $$D_{KL}(P \parallel Q) = \mathbb{E}_{X \sim P} \left[ \log \frac{P(x)}{Q(x)} \right] = \mathbb{E}_{X \sim P} \left[ \log P(x) - \log Q(x) \right]$$
 
 The KL divergence has many useful properties, most notably being non-negative. The KL divergence is 0 if and only if P and Q are the same distribution in the case of discrete variables, or equal “almost everywhere” in the case of continuous variables. 

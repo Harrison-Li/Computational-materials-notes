@@ -6,7 +6,7 @@
 
 Perceptrons were invented as simple computational models of neurons. A single neuron typically has many inputs (dendrites), a cell body, and a single output (the axon). Echoing this, the perceptron takes many inputs and has one output.
 
-<img src="/Users/harrison-li/Library/Application Support/typora-user-images/image-20240809212644620.png" alt="image-20240809212644620" style="zoom:50%;" />
+<img src="assets/image-20240809212644620.png" alt="image-20240809212644620" style="zoom:50%;" />
 
 <center>Figure 1.1.Schematic diagram of a perceptron</center>
 
@@ -52,11 +52,11 @@ We go through the training data multiple times. Each pass through the data is ca
 
 ### 1.2. Cross-entropy Loss Functions for Neural Nets
 
-<img src="/Users/harrison-li/Library/Application Support/typora-user-images/image-20240813210237693.png" alt="image-20240813210237693" style="zoom:67%;" />
+<img src="assets/image-20240813210237693.png" alt="image-20240813210237693" style="zoom:67%;" />
 
 <center>Figure 1.2. Multilayer-perceptrons for multiple classes problems</center>
 
-<img src="/Users/harrison-li/Library/Application Support/typora-user-images/image-20240813210541663.png" alt="image-20240813210541663" style="zoom:50%;" />
+<img src="assets/image-20240813210541663.png" alt="image-20240813210541663" style="zoom:50%;" />
 
 <center>Figure 1.3.NN showing layers</center>
 
@@ -72,7 +72,7 @@ Here $\mathcal{L}$ is the learning rate, a real number that scales how much we c
 
 
 
-<img src="/Users/harrison-li/Library/Application Support/typora-user-images/image-20240814160442217.png" alt="image-20240814160442217" style="zoom:67%;" />
+<img src="assets/image-20240814160442217.png" alt="image-20240814160442217" style="zoom:67%;" />
 
 <center>Figure 1.4.A simple network with a softmax layer</center>
 
@@ -184,7 +184,7 @@ $$
 $$
 S(t)=(I*K)(i,j)=\sum_m\sum_nI(i+m,j+n)K(m,n)
 $$
-![image-20240816154611892](/Users/harrison-li/Library/Application Support/typora-user-images/image-20240816154611892.png)
+![image-20240816154611892](assets/image-20240816154611892.png)
 
 <center>Figure 2.1.An example of 2-D convolution without kernel flipping. We restrict the output to only positions where the kernel lies entirely within the image, called “valid” convolution in some contexts. We draw boxes with arrows to indicate how the upper-left element of the output tensor is formed by applying the kernel to the corresponding upper-left region of the input tensor.</center>
 
@@ -197,10 +197,10 @@ Convolution leverages three important ideas that can help improve a machine lear
 - **Parameter sharing** 
 - **Equivariant**
 
-![image-20240816162733073](/Users/harrison-li/Library/Application Support/typora-user-images/image-20240816162733073.png)
+![image-20240816162733073](assets/image-20240816162733073.png)
 
 <center>Figure 2.2. Graphical demonstrations of sparse connectivity</center>
 
-![image-20240816163117338](/Users/harrison-li/Library/Application Support/typora-user-images/image-20240816163117338.png)
+![image-20240816163117338](assets/image-20240816163117338.png)
 
 <center>Figure 2.3Graphical depiction of how parameter sharing </center>

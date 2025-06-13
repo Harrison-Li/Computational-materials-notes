@@ -2,7 +2,7 @@
 
 ## Introduction
 
-![image-20240625171220358](/Users/harrison-li/Library/Application Support/typora-user-images/image-20240625171220358.png)
+![image-20240625171220358](assets/image-20240625171220358.png)
 
 Sidestep this issue by utilizing implicit, likelihood-free methods, in particular, a generative adversar- ial network (GAN) that we adapt to work directly on graph representations. We further utilize a reinforcement learning (RL) objective similar to ORGAN (Guimaraes et al., 2017) to encourage the generation of molecules with particular properties.
 
@@ -34,7 +34,7 @@ where $G_\theta$ tries to generate samples to fool the discriminator and $D_\phi
 
 ## Model
 
-![image-20240625212658747](/Users/harrison-li/Library/Application Support/typora-user-images/image-20240625212658747.png)
+![image-20240625212658747](assets/image-20240625212658747.png)
 
 Components: a generator $G_\theta$ , a discriminator $D_\phi$ , and a reward network $\hat{R}_\psi$
 

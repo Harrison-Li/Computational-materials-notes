@@ -4,7 +4,7 @@
 
 ### Variables and Types
 
-![image-20240627220731905](/Users/harrison-li/Library/Application Support/typora-user-images/image-20240627220731905.png)
+![image-20240627220731905](assets/image-20240627220731905.png)
 
 **Identify the types(Duck typing)**
 
@@ -413,7 +413,7 @@ f.close()
 
 When you use open to create file objects, it is important to explicitly close the file when you are finished with it. Closing the file releases its resources back to the operating system:
 
-![image-20240630210209321](/Users/harrison-li/Library/Application Support/typora-user-images/image-20240630210209321.png)
+![image-20240630210209321](assets/image-20240630210209321.png)
 
 #### Class
 
