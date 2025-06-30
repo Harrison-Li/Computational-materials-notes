@@ -1,8 +1,18 @@
-# ML-for-Materials-notes
-My notes from studying Machine learning from materials science background as a beginner. These files mainly contain theoretical knowledge about AI and AI for materials. While practice codes are in process (I am on the way too🥹)
+This repository contains my notes from studying Machine Learning as a beginner with a materials science background. The notes primarily cover theoretical concepts in AI and its applications in materials science.
 
-> [!NOTE]
->
-> All of text is written in Typora, while GitHub does not support MathJax engine or KaTeX for rendering LaTeX. So, some formulas are not formally presented ,     please download it for viewing.
+⚙️ Practice code is still in progress — I’m working on it! 🥹
 
+[!NOTE]
+All text was written in Typora. However, GitHub does not support the MathJax or KaTeX engines for rendering LaTeX equations. As a result, some formulas may not be displayed properly here.
+👉 Please download the files locally for correct formatting and rendering.
+
+⸻
+
+🔄 Update
+
+I’m currently diving into quantum mechanics, aiming to explore high-throughput computational methods for accurate property prediction. At the same time, I’m learning about Machine Learning Force Fields and AI for Quantum Chemistry (AIQC).
+
+Fitting wavefunctions using ML seems to be a promising approach to balance accuracy and computational efficiency. I’ll be uploading relevant notes as I gain more understanding.
+
+📢 Always open to feedback and advice from the community — feel free to reach out! 🥰
 
