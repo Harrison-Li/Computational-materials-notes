@@ -1,18 +1,23 @@
-This repository contains my notes from studying Machine Learning as a beginner with a materials science background. The notes primarily cover theoretical concepts in AI and its applications in materials science.
+# ML-for-Materials-notes
 
-⚙️ Practice code is still in progress — I’m working on it! 🥹
+My notes from studying **Machine Learning** with a **materials science** background as a beginner. These files mainly contain **theoretical knowledge** about AI and AI for materials.  
+🛠️ Practical code is still in progress (I'm working on it! 🥹)
 
-[!NOTE]
-All text was written in Typora. However, GitHub does not support the MathJax or KaTeX engines for rendering LaTeX equations. As a result, some formulas may not be displayed properly here.
-👉 Please download the files locally for correct formatting and rendering.
+> [!NOTE]
+>
+> All text is written in **Typora**. However, GitHub does **not support MathJax or KaTeX**, so some LaTeX formulas may not render correctly here.  
+> 👉 Please download the files to view them with proper formatting.
 
-⸻
+---
 
-🔄 Update
+## 🔄 Incoming Updates
 
-I’m currently diving into quantum mechanics, aiming to explore high-throughput computational methods for accurate property prediction. At the same time, I’m learning about Machine Learning Force Fields and AI for Quantum Chemistry (AIQC).
+I'm currently learning **quantum mechanics** and exploring **high-throughput computational methods** to calculate material properties more accurately. I'm also trying to understand:
 
-Fitting wavefunctions using ML seems to be a promising approach to balance accuracy and computational efficiency. I’ll be uploading relevant notes as I gain more understanding.
+- **Machine Learning Force Fields**
+- **AI for Quantum Chemistry (AIQC)**
 
-📢 Always open to feedback and advice from the community — feel free to reach out! 🥰
+Fitting **wavefunctions** might be a good approach to balance **accuracy** and **computational cost**.
 
+📌 I’ll continue to publish notes as I make progress.  
+💡 Also looking for advice and feedback from the community! 🥰
