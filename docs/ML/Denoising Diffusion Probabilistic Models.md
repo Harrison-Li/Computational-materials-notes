@@ -113,11 +113,24 @@ $$
 
 Recall that we can get $p(\textbf{x}_{t-1}|\textbf{x}_t)$ tractable by condition on $x_o$.
 
-$p(x_{t-1}|x_t,x_0)=\frac{p(x_{t}|x_{t-1},x_0)\cdot p(x_{t-1},x_0)}{p(x_t,x_0)}\rightarrow q(x_{t}|x_{t-1})=\frac{q(x_{t-1}|x_t,x_0)\cdot q(x_t,x_0)}{q(x_{t-1},x_0)}$
+$$
+p(x_{t-1}|x_t,x_0)=\frac{p(x_{t}|x_{t-1},x_0)\cdot p(x_{t-1},x_0)}{p(x_t,x_0)}\\
+\rightarrow q(x_{t}|x_{t-1})=\frac{q(x_{t-1}|x_t,x_0)\cdot q(x_t,x_0)}{q(x_{t-1},x_0)}
+$$
 
-$L=\mathbb{E}_q[-\log{p(\textbf{x}_T)}-\sum_{t=1}^T\log\frac{p_\theta(\textbf{x}_{t-1}|\textbf{x}_{t})}{q(\textbf{x}_t|\textbf{x}_{t-1})}]=\mathbb{E}_q[-\log{p_{\theta}(\textbf{x}_T)}-\sum_{t>1}^T\log\frac{p_\theta(\textbf{x}_{t-1}|\textbf{x}_{t})\cdot q(\textbf{x}_{t-1}|\textbf{x}_0)}{q(\textbf{x}_{t-1}|\textbf{x}_{t},\textbf{x}_0)\cdot q(\textbf{x}_t|\textbf{x}_0)}-\log{\frac{p_\theta(\textbf{x}_0|\textbf{x}_1)}{q(\textbf{x}_1|\textbf{x}_0)}}]$
+$$
+\begin{aligned}
+L&=\mathbb{E}_q[-\log{p(\textbf{x}_T)}-\sum_{t=1}^T\log\frac{p_\theta(\textbf{x}_{t-1}|\textbf{x}_{t})}{q(\textbf{x}_t|\textbf{x}_{t-1})}]\\
+&=\mathbb{E}_q[-\log{p_{\theta}(\textbf{x}_T)}-\sum_{t>1}^T\log\frac{p_\theta(\textbf{x}_{t-1}|\textbf{x}_{t})\cdot q(\textbf{x}_{t-1}|\textbf{x}_0)}{q(\textbf{x}_{t-1}|\textbf{x}_{t},\textbf{x}_0)\cdot q(\textbf{x}_t|\textbf{x}_0)}-\log{\frac{p_\theta(\textbf{x}_0|\textbf{x}_1)}{q(\textbf{x}_1|\textbf{x}_0)}}]
+\end{aligned}
+$$
 
-$L=\mathbb{E}_q[-\log{p_\theta(\textbf{x}_T)}+\log{q(\textbf{x}_T|\textbf{x}_0)}-\sum_{t>1}^T\log\frac{p_\theta(\textbf{x}_{t-1}|\textbf{x}_{t})}{q(\textbf{x}_{t-1}|\textbf{x}_{t},\textbf{x}_0)}-\log{\frac{p_\theta(\textbf{x}_0|\textbf{x}_1)}{q(\textbf{x}_1|\textbf{x}_0)}}]\\=\mathbb{E}_q[-\log{p_\theta(\textbf{x}_T)}+\log{q(\textbf{x}_T|\textbf{x}_0)}-\sum_{t>1}^T\log\frac{p_\theta(\textbf{x}_{t-1}|\textbf{x}_{t})}{q(\textbf{x}_{t-1}|\textbf{x}_{t},\textbf{x}_0)}-\log{\frac{p_\theta(\textbf{x}_0|\textbf{x}_1)}{q(\textbf{x}_1|\textbf{x}_0)}}]$
+
+Pay attention: $\sum_{t=2}^T\log\frac{q(x_{t-1}|x_0)}{q(x_t|x_0)} = \log q(x_T|x_0)-\log q(x_1|x_0)$
+$$
+L=\mathbb{E}_q[-\log{p_\theta(\textbf{x}_T)}+\log{q(\textbf{x}_T|\textbf{x}_0)} -\log{q(\textbf{x}_1|\textbf{x}_0})-\sum_{t>1}^T\log\frac{p_\theta(\textbf{x}_{t-1}|\textbf{x}_{t})}{q(\textbf{x}_{t-1}|\textbf{x}_{t},\textbf{x}_0)}-\log{\frac{p_\theta(\textbf{x}_0|\textbf{x}_1)}{q(\textbf{x}_1|\textbf{x}_0)}}]
+$$
+
 
 
 $$
