@@ -127,3 +127,28 @@ $$
 $$
 
 - $\pi$ (without indices): The final, stable probability distribution.
+
+
+
+
+
+
+
+## 3. Trial Move
+
+
+
+### Insertion/Deletion trail move
+
+
+
+
+
+
+
+### Force-bias trail move
+
+$$
+p(\delta r)=\prod_i^d\frac{e^{\beta f\delta r_i}}{c_i}
+$$
+

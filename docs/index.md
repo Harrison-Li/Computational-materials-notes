@@ -38,6 +38,7 @@ ML/Applied math.md
 ML/Introduction to machine learning.md
 ML/Introduction to Deep learning.md
 ML/Loss function.md
+ML/E(n) Equivariant Graph Neural Networks.md
 ML/Denoising Diffusion Probabilistic Models.md
 ML/Dimensionality Reduction.md
 ML/Sequence model.md
