@@ -39,11 +39,10 @@ $$
 The Equivariant Graph Convolutional Layer (EGCL) takes as input the set of node embeddings $h^l=\{h_0^l,...,h_{M-1}^l\}$, coordinate embeddings $x^l=\{x_0^l,...,x_{M-1}^l\}$ and edge information $\mathcal{E}=(e_{ij})$ and outputs a transformation on $h^{l+1}$ and $x^{l+1}$. Which means $h^{l+1},x^{l+1}=\text{EGCL}(h^l,x^l,\mathcal{E})$, to be more detail, the equation that define this layer are the following:
 $$
 \begin{align}
-m_{ij}&=\phi_e(h^l_i,h^l_j,\norm{x_i^l-x_j^l}^2,a_{ij})\\ 
+m_{ij}&=\phi_e(h^l_i,h^l_j,\lVert x_i^l-x_j^l\rVert^2,a_{ij})\\ 
 x_i^{l+1}&=x_i^l+C\sum_{j\neq i}(x_i^l-x_j^l)\phi_x(m_{ij})\\
 m_i&=\sum_{j\neq i}m_{ij}\\
 h_i^{l+1}&=\phi_h(h_i^l,m_{i})
-
 \end{align}
 $$
 
@@ -53,11 +52,17 @@ The Message block should satisfy the translation equivariant on $\mathbf{x}$ on 
 $$
 Q\mathbf{x}^{l+1} +g,\, \mathbf{h}^{l+1}=\text{EGCL}(Q\mathbf{x}^l+g, \mathbf{h}^l)
 $$
-Since the embedding vector $h$ is based on node $v_i$, so we do not encode any information about the absolute position or orientation of $x_0$ into $h_0$. which means the $h$ is invariant to the $E(n)$ transformations. Then the message in equation (3) gained by the edge and nodes are invariant to translations $\norm{x_i^l+g-x_j^l+g}^2=\norm{x_i^l-x_j^l}^2$, and it's invariant to the rotation and reflections: $\norm{Qx_i^l-Qx_j^l}^2=(x_i^l-x_j^l)^\top Q^\top Q(x_i^l-x_j^l)=(x_i^l-x_j^l)^\top\mathbf{I}(x_i^l-x_j^l)=\norm{x_i^l-x_j^l}^2$,  such that the edge operation becomes invariant:
+
+
+Since the embedding vector $h$ is based on node $v_i$, so we do not encode any information about the absolute position or orientation of $x_0$ into $h_0$. which means the $h$ is invariant to the $E(n)$ transformations. Then the message in equation (3) gained by the edge and nodes are invariant to translations $\lVert x_i^l+g-x_j^l+g^2\rVert=\lVert x_i^l-x_j^l\lVert^2$, and it's invariant to the rotation and reflections: $\lVert Qx_i^l-Qx_j^l\rVert^2=(x_i^l-x_j^l)^\top Q^\top Q(x_i^l-x_j^l)=(x_i^l-x_j^l)^\top\mathbf{I}(x_i^l-x_j^l)=\lVert x_i^l-x_j^l\rVert^2$,  such that the edge operation becomes invariant:
 $$
-m_{ij}=\phi_e(h^l_i,h^l_j,\norm{(Qx_i^l+g)-(Qx_j^l+g)}^2,a_{ij})=\phi_e(h^l_i,h^l_j,\norm{x_i^l-x_j^l}^2,a_{ij})
+m_{ij}=\phi_e(h^l_i,h^l_j,\lVert(Qx_i^l+g)-(Qx_j^l+g)\rVert^2,a_{ij} =\phi_e(h^l_i,h^l_j,\lVert x_i^l-x_j^l\rVert^2,a_{ij})
 $$
+
+
 The we want to prove the equation (4):
+
+
 $$
 Qx_i^{l+1}+g=Qx_i^l+g+C\sum_{j\neq i}(Qx_i^l+g-Qx_j^l+g)\phi_x(m_{ij})
 $$
