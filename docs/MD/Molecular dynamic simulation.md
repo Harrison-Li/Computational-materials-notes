@@ -1,20 +1,18 @@
 # Boundary Conditions & Ensembles
 
-## 1. The theoretic foundation
+## The theoretic foundation
 
-### 1.1. Boundary Conditions
+### Boundary Conditions
 
 Due to the infinite size of the system, any atomistic simulation of macroscopic condensed matter can only cover a comparatively small detail of its atomic arrangement.
 
-**Periodic boundary conditions** (**PBCs**) are a set of [boundary conditions](https://en.wikipedia.org/wiki/Boundary_condition) that are often chosen for approximating a large (infinite) system by using a small part called a *unit cell*. 
+**Periodic boundary conditions** (**PBCs**) are a set of [boundary conditions](https://en.wikipedia.org/wiki/Boundary_condition) that are often chosen for approximating a large (infinite) system by using a small part called a *unit cell*.
 
 During the simulation, each particle in the simulation only interacts with the closest image of the remaining particles. Which is called <u>minimum image convention</u>
 
 <img src="assets/pbc.png" alt="image-20260223143359066" style="zoom:50%;" />
 
-
-
-### 1.2. Statistical mechanics in MD
+### Statistical mechanics in MD
 
 Two postulates for equilibrium statistical mechanics:
 
@@ -29,9 +27,7 @@ The ensemble average: $\langle f \rangle=\int_\Omega f(x)d\mu(x)$
 
 **The Ergodic Hypothesis** states that for an ergodic system: $\bar{f_t}=\langle f\rangle$
 
-
-
-### 1.3. Ensembles
+### Ensembles
 
 A ensemble is a collection of microstates subject to at least one **extrinsic** constraint. (Extensive property is the property that scale with the environment)
 
@@ -47,24 +43,21 @@ $$
 
 <img src="assets/ensembles.png" alt="image-20260223230747688" style="zoom:50%;" />
 
-
-
-## 2. The movement of atoms
+##  The movement of atoms
 
 How the atoms interact with each other. **Equation of motion:**
 
-1. Newtonian 
+1. Newtonian
 2. Lagrangian
 3. Hamiltonian
 
-### 2.1. **Newtonian motion**: from force and acceleration perspective
+###  **Newtonian motion**: from force and acceleration perspective
 
 $$
 m_i\frac{dr_i}{dt^2} = F_i = \nabla_{r_i} V(r_1,...,r_N)
 $$
 
-
-### 2.2. **Lagrangian motion:** From energy and path
+### **Lagrangian motion:** From energy and path
 
 Lagrangian mechanics shifts the focus from forces and Cartesian coordinates to energy and "generalized coordinates." It is based on the <u>Principle of Least Action</u>—the idea that a system will evolve along a trajectory that minimizes a quantity called the "action."
 
@@ -77,7 +70,7 @@ $$
 >
 > **Generalized coordinates** are the absolute minimum number of independent variables required to completely define the configuration of a system, taking any physical constraints into account. They are conventionally denoted by the symbol $q$.
 >
-> $f=3N-m$, the number of generalized coordinates $q_1,q_2,...,q_f $ needed. 
+> $f=3N-m$, the number of generalized coordinates $q_1,q_2,...,q_f $ needed.
 >
 > e.g. A Rigid Diatomic Molecule in MD ($\{q_1,q_2, q_3,...,q_6\}\rightarrow \{x,y,z,\theta,\phi\} $)
 >
@@ -91,9 +84,7 @@ $$
 - $q$: A generalized coordinate. This doesn't have to be an $x,y,z$ position; it could be an angle, a bond length, or any coordinate system that naturally describes the system.
 - $\dot{q}$: The generalized velocity (the time derivative of the generalized coordinate $q$).
 
-
-
-### 2.3. **Hamiltonian motion:** Phase space and Statistical mechanics
+### **Hamiltonian motion:** Phase space and Statistical mechanics
 
 While Newtonian and Lagrangian motion take $q_i$ as fundamental variable and seeks for $N$ $ 2^{nd}$ derivatives. The Hamiltonian seeks for $2N$ first order derivative. It treats coordinate and its time derivative as independent variables.
 
@@ -112,7 +103,7 @@ $$
 $$
 
 - $\dot{q}$ is the time derivative of the generalized coordinate.
-- $\dot{p}$ is the time derivative of the generalized momentum $\dot{p} = \frac{dp}{dt}$, which is equivalent to force. 
+- $\dot{p}$ is the time derivative of the generalized momentum $\dot{p} = \frac{dp}{dt}$, which is equivalent to force.
 
 > [!TIP]
 >
@@ -122,17 +113,13 @@ $$
 >
 > $H(q,p)=p\dot{q}-\mathcal{L}(q,\dot{q})$
 
-## 3. Time integration algorithms
+## Time integration algorithms
 
-
-
-
-
-## 4. Temperature and Pressure dependent MD
+## Temperature and Pressure dependent MD
 
 For standard MD, it assumes an isolated system with constant energy. However, real world simulation is under const temperature or pressure. So, how to artificially add or remove energy to keep the temperature or pressure constant is a problem.
 
-**The thermodynamic definition of temperature **
+**The thermodynamic definition of temperature**
 $$
 \frac{1}{T}=(\frac{\partial S}{\partial E })_{V,N}\\
 \frac{1}{KT}=\frac{\partial}{\partial E}\ln\Omega(E, V, N)
@@ -140,9 +127,9 @@ $$
 
 - $\Omega$ is Num of microstates with given E
 
-So, temperature defines the how much more disordered of a system given amount of energy. 
+So, temperature defines the how much more disordered of a system given amount of energy.
 
-high temperature: adding energy opens up few additional microstates. 
+high temperature: adding energy opens up few additional microstates.
 
 low temperature: adding energy opens up many additional microstates
 
@@ -159,7 +146,7 @@ $\Omega$ is the number of states or Density of states. Let $\Phi(E)$ be the tota
 $$
 \Phi(E)=\int_{E(x)<E}d^Nx
 $$
-The density of states $\Omega(E)$ is the rate of change of this volume with respect to energy. 
+The density of states $\Omega(E)$ is the rate of change of this volume with respect to energy.
 $$
 \Omega(E)=\frac{\partial \Phi(E)}{\partial E}=\int\frac{1}{\partial E} (\frac{\nabla_x E}{|\nabla_x E|}ds)=\int_{E=E(x)}\frac{1}{|\nabla_x E|}ds
 $$
@@ -168,12 +155,11 @@ $$
 
 **Expression for the Temperature**
 
-
 $$
 \frac{1}{KT}=\frac{\nabla^2_x E}{|\nabla_x E|^2}
 $$
 
-### 4.1. Momentum temperature
+### Momentum temperature
 
 Kinetic energy: $K(p^N)=\sum_i^N\frac{p_i^2}{2m}$
 
@@ -183,7 +169,7 @@ Laplacian: $\nabla^2_pK=\nabla\cdot\nabla_pK=\sum_i^N(\frac{1}{m}+...+\frac{1}{m
 
 Temperature: $kT=\frac{|\nabla_p K|^2}{\nabla_p^2 K}=\frac{m}{Nd}\times\sum_i^N((\frac{p_{ix}}{m})^2+(\frac{p_{iy}}{m})^2+...+(\frac{p_{id}}{m})^2)=\frac{1}{Nd}\sum_i^N\frac{p_{i}^2}{m}$
 
-### 4.2. Configurational Temperature
+### Configurational Temperature
 
 Potential energy: $U(r^N)$
 
@@ -193,7 +179,7 @@ Laplacian: $\nabla^2_rU=\nabla\cdot\nabla_rU=-\sum_i^N(\frac{\partial F_{ix}}{\p
 
 Temperature: $kT=\frac{|\nabla_r U|^2}{\nabla_r^2 U}=-\frac{\sum_i^N \hat{F_i}^2}{\sum_i^N(\frac{\partial F_{ix}}{\partial r_{ix}}+...+\frac{\partial F_{iy}}{\partial r_{iy}})}$
 
-## 5. Types of Thermostats
+## Types of Thermostats
 
 In canonical ensemble, the $N, V, T$ are fixed. The temperature of the system can be connected to the kinetic energy by the momentum temperature:
 $$
@@ -202,16 +188,15 @@ KT =\frac{|\nabla_p K|^2}{\nabla_p^2 K} = \frac{1}{Nd}\sum_i^N\frac{p_i^2}{m}=\f
 \frac{3}{2}NKT = \langle E_K\rangle
 $$
 
-
 Although the temperature and the average kinetic energy are fixed, the instantaneous kinetic energy fluctuates and with it the velocities of the particles. The instantaneous kinetic energy is often used to define the instantaneous temperature $T_\text{in}$ by:
 $$
 k_B T_{\mathrm{in}} = {2\over 3N} E_{\mathrm{kin}}
 $$
 But in <u>NVE micro-canonical ensemble</u>, the temperature is characterized by $\frac{1}{T}=\partial S/\partial E$, there is no connection between kinetic energy and temperature.
 
-Because the temperature fluctuates in the finite systems as we introduced above, so the goal of thermostat is to ensure the time average of $T(t)$ is matched with target temperature $T_\text{target}$ 
+Because the temperature fluctuates in the finite systems as we introduced above, so the goal of thermostat is to ensure the time average of $T(t)$ is matched with target temperature $T_\text{target}$
 
-### 5.1. Velocity Rescaling (Simple but Flawed)
+### Velocity Rescaling (Simple but Flawed)
 
 The simplest way to control temperature is to periodically multiply all particle velocities by a scaling factor.
 $$
@@ -221,7 +206,7 @@ It's computationally cheap and brings the system exactly to the target temperatu
 
 And the typical example is Berendsen and Andersen Thermostat.
 
-#### 5.1.2 Berendsen Thermostat
+#### Berendsen Thermostat
 
 The Berendsen thermostat weakly couples the system to an external heat bath. It forces the temperature to exponentially decay towards the target value.
 $$
@@ -234,11 +219,9 @@ $$
 \lambda = \sqrt{1+\frac{\Delta t}{\tau}(\frac{T_\text{target}}{T(t)}-1)}
 $$
 
+### Stochastic Thermostat
 
-
-### 5.2. Stochastic Thermostat
-
-#### 5.2.1. Andersen Thermostat
+#### Andersen Thermostat
 
 The Andersen thermostat introduces stochastic (random) collisions with a virtual heat bath. Periodically, a particle is selected at random, and its velocity is reassigned from a Maxwell-Boltzmann distribution corresponding to the target temperature.
 
@@ -251,7 +234,7 @@ $$
 p(t;\nu) = \nu e^{-\nu t}
 $$
 
-#### 5.2.2. Langevin Thermostat
+#### Langevin Thermostat
 
 The equation for Langevin dynamics:
 $$
@@ -272,7 +255,7 @@ $$
 \end{align}
 $$
 
-#### 5.2.3. Nosé-Hoover Thermostat (Extended Lagrangian Method)
+#### Nosé-Hoover Thermostat (Extended Lagrangian Method)
 
 In Nosé-Hoover’s approach, an additional “agent” is introduced into the system to “check” whether the instantaneous kinetic energy is higher or lower than the desired temperature and then scales the velocities accordingly, effectively acting as a heat reservoir. It introduces a new degree of freedom, $s$ representing a reservoir.
 
@@ -286,7 +269,7 @@ $$
 - $\dot{r}$: The time derivative of the position vector of particle $i$ (virtual velocity).
 - $\dot{s}$ The time derivative of the heat bath variable $s$
 - $g$ is the number of independent degrees of freedom in the physical system. For $N$ particles in 3D space with fixed total momentum, $g=3N−3$.
-- $Q$ is the thermal inertia or "effective mass", which determines the time scale on which the extended variable acts. 
+- $Q$ is the thermal inertia or "effective mass", which determines the time scale on which the extended variable acts.
 
 However, the Nosé Lagrangian perfectly generates the canonical ensemble, it operates in "virtual time" because the time step scales with the fluctuating variable $s$, the extended method aims to return the equations to "real time" and real momenta.
 $$
@@ -301,14 +284,11 @@ $$
 - If the system is too hot ($T(t) > T_{target}$), $\frac{d\zeta}{dt}$ is positive, $\zeta$ grows, increasing friction and **cooling** the system.
 - If the system is too cold ($T(t) < T_{target}$), $\frac{d\zeta}{dt}$ is negative, $\zeta$ becomes negative (acting as an accelerant), and **heats** the system.
 
-
 $$
 H_{NH} = \sum_{i=1}^{N} \frac{|\mathbf{p}_i|^2}{2m_i} + U(\mathbf{r}) + \frac{1}{2} Q \zeta^2 + N_f k_B T_{target} \int_0^t \zeta(t') dt'
 $$
 
 - $s$ can be treated  as a scaling factor of the time step
-
-  
 
 So, the relation between real time and virtual times is:
 $$
@@ -321,16 +301,13 @@ $$
  \mathbf{p} &= \mathbf{p'}/s   \\[6pt]
           s &= s'               \\[6pt]
         p_s &=   p_s'/s      \\[6pt]
-\mathrm{d}t &= \mathrm{d}t'/s \label{eq:r2v_dt} \\[6pt]
+\mathrm{d}t &= \mathrm{d}t'/s \\[6pt]
 \end{align*}
 $$
 
+## Truncating the Potential and Ewald Summation
 
-
-
-## 6. Truncating the Potential and Ewald Summation
-
-### 6.1. Truncating the Potential
+### Truncating the Potential
 
 Any potential truncation introduces discontinuity, near cutoff $(r<r_\text{cutoff})$ the potential is continuous, at $r_\text{cutoff}$, $U$ is 0. Such phenomenon introduces infinite force near $r_\text{cutoff}$
 
@@ -338,24 +315,24 @@ Any potential truncation introduces discontinuity, near cutoff $(r<r_\text{cutof
 
 It removes infinite forces, but still discontinuity in force.
 $$
-u(r) = \begin{cases} 
-u(r) - u(r_c) & r \leq r_c \\ 
-0 & r > r_c 
+u(r) = \begin{cases}
+u(r) - u(r_c) & r \leq r_c \\
+0 & r > r_c
 \end{cases}
 $$
 **Shifted-force potentials**
 
 Routinely used in MD
 $$
-u(r) = \begin{cases} 
-u(r) - u(r_c) - \frac{du}{dr}(r-r_c) & r \leq r_c \\ 
-\qquad \qquad 0 & r > r_c 
+u(r) = \begin{cases}
+u(r) - u(r_c) - \frac{du}{dr}(r-r_c) & r \leq r_c \\
+\qquad \qquad 0 & r > r_c
 \end{cases}
 $$
 
-### 6.2. Ewald Summation
+### Ewald Summation
 
-If we need to calculate the total electrostatic energy of a periodic system of point charges, the direct approach is to sum the coulomb interactions for pair-wise charges. However, recall that bulk system are usually simulated with periodic boundary conditions by cutoff. Due to minimum image convention, it only interact with nearest image. 
+If we need to calculate the total electrostatic energy of a periodic system of point charges, the direct approach is to sum the coulomb interactions for pair-wise charges. However, recall that bulk system are usually simulated with periodic boundary conditions by cutoff. Due to minimum image convention, it only interact with nearest image.
 $$
 U_\text{coulomb}=\sum_{i=1}^N\sum_{j=1}^N\sum_L^\prime\frac{q_iq_j}{|r_{ij}+L|}
 $$
@@ -363,7 +340,7 @@ The prime (′) indicates that we do not include the interaction of a charge wit
 
 - $L$ is the lattice vector of $L^{th}$ unit cells.
 
-Due to the slow convergence of $\frac{1}{r}$, and the number of interacting particles in a 3D space grows as $r^2$. The potential will increase with $U_\text{total}\propto \int_0^\infty rdr\rightarrow \infty$ (for single type shell charges), and in real crystals they are conditionally converge. 
+Due to the slow convergence of $\frac{1}{r}$, and the number of interacting particles in a 3D space grows as $r^2$. The potential will increase with $U_\text{total}\propto \int_0^\infty rdr\rightarrow \infty$ (for single type shell charges), and in real crystals they are conditionally converge.
 
 So, to deal with slow convergence, Ewald propose to calculate the potential splitter into a **short-range** part calculated in real space, and a **long-range** part calculated in reciprocal (Fourier) space.
 $$
@@ -374,9 +351,7 @@ $$
 - $f(\lambda(r))$ is a fast decay function
 - $\lambda$ is the parameter that determines how fast the function decays.
 
-[![img](http://staff.ustc.edu.cn/~zqj/assets/posts/ewald_summation/erfc.png)](http://staff.ustc.edu.cn/~zqj/assets/posts/ewald_summation/erfc.png)
-
-
+![erfc](assets/erfc.png)
 
 The main idea of Ewald summation is to separate long-range interactions by screening at the real space. By wrapping every point charge in a diffuse cloud of opposite charge. Imaging if we are standing far away from this atom, the positive point charge and the negative Gaussian cloud perfectly cancel each other out. So, we only need to calculate the pair wise potential in the cut off range.
 $$
@@ -387,8 +362,6 @@ $$
 - $|r-r_0|$ is the distance from the center of the point charge.
 - $q$ is the charge of central particle.
 
-
-
 At the same time, we need to compensate such fake screening clouds, we superimpose a positive compensating cloud in the exact same location to cancel the fake one out.
 
 In Ewald summation, complementary error function is chosen as the decay function:
@@ -398,7 +371,7 @@ $$
     \operatorname{erf}(r) =  \frac{2}{\sqrt\pi} \int_0^r e^{-t^2} \,\mathrm{d}t;
 $$
 
-![image-20260301163256949](assets/screen.png)
+![screen](assets/screen.png)
 
 **Real space summation**
 
@@ -407,11 +380,9 @@ $$
 U_{sr} = \sum_{i=1}^N\sum_{j=1}^N\sum_L^\prime q_iq_j\frac{\operatorname{erfc}(\alpha|r_{ij}+L|)}{|r_{ij}+L|}
 $$
 
-
 **Reciprocal space summation**
 
 Due to the periodicity of crystals, the particles interact with compensated cloud should follow the periodicity. The standard way to solve the math of periodic waves is to use a Fourier transform to switch from real space into reciprocal (momentum) space. And the Fourier transform of a Gaussian is another Gaussian.
-
 
 $$
 U_{lr}= \frac{1}{2V}\sum_{k\neq 0}\frac{4\pi}{k^2}e^{-k^2/4\alpha^2}|\sum_{j=1}^Nq_je^{-ik\cdot r_j}|^2
@@ -434,7 +405,6 @@ f(r) = A\sum_k f(k)e^{ikr}
 =f(r)A^2\Omega\delta_{k,k^\prime}\Rightarrow A^2\Omega=1\rightarrow A=\frac{1}{\sqrt{\Omega}}
 $$
 
-
 The let's first get the distribution of the compensation smooth distribution.
 $$
 \rho_\text{compensate}(r) =  -\rho_\text{screen}(r+L) = \sum_L\sum_{i=1}q_i(\frac{\alpha}{\sqrt{\pi}})^3e^{-\alpha^2|r-r_i+L|^2}
@@ -452,10 +422,7 @@ $$
 - $N$ and $V$ is the number and volume of unit cells, respectively.
 - $\Omega$ is volume of the periodic materials: $\Omega=NV$.
 
-
-
 The charge and electrostatic potential are related by Poisson’s equation in real space
-
 
 $$
 \phi(r)=\frac{q}{r}\rightarrow E(r)=\frac{q}{r^2}\\
@@ -473,7 +440,6 @@ $$
 \phi_\text{compensate}(k)=\sqrt{\frac{N}{V}}\sum_iq_i\frac{4\pi}{k^2}e^{-k^2/4\alpha^2}\cdot e^{ikr_i}
 $$
 
-
 And we get the potential:
 $$
 U_{lr}(r)=\sum_m\sum_r\frac{1}{2}\phi(r)q_m\\
@@ -486,21 +452,12 @@ U_{lr}(k)=\sum_k\frac{1}{2V}(\frac{4\pi}{k^2})(\sqrt{\frac{N}{\Omega}}\sum_i^N\s
 =\frac{1}{2V}\sum_{k\neq0}\frac{4\pi}{k^2}e^{-k^2/4\alpha^2}\sum_i^N\sum_j^Nq_iq_j\cdot e^{ik(r_i-r_j)}
 $$
 
-
-
 **Self correction term**
 
 This is a constant correction term applied to remove the interaction of a charge's compensating cloud with the charge itself, which was inherently included in the reciprocal sum.
 $$
 U_\text{self} = -\frac{\alpha}{\sqrt{\pi}}\sum_iq_i^2
 $$
-
-
-
-
-
-
-
 
 ## Radial distribution function (RDF)
 
@@ -511,11 +468,3 @@ $$
 
 - $g(r)=1$ as $r>r_\text{cutoff}$, meaning the structure becomes uniform at long distances.
 - $g(r)=0$ as $r=0$ due the core repulsion between atoms.
-
-
-
-
-
-[1]: http://staff.ustc.edu.cn/~zqj/posts/Ewald-Summation	"Ewald Summation post by Qijing Zheng"
-[2]: http://staff.ustc.edu.cn/~zqj/posts/NVT-MD/	"Molecular Dynamics at Constant Temperature"
-

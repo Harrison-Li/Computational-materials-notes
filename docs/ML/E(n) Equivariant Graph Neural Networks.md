@@ -1,8 +1,8 @@
 # E(n) Equivariant Graph Neural Networks
 
-##  1. Background
+##  Background
 
-### 1.1. Equivariance
+### Equivariance
 
 Let $T_g:X\rightarrow X$ be a set of transformations on $X$ for the abstract group $g\in G$,  We say a function $\phi: X\rightarrow Y$ is equivariant to $g$ if there exists an equivalent transformation on its output space $S_g:Y\rightarrow Y$:
 $$
@@ -16,15 +16,15 @@ Three types of equivariance on a set of particles x:
 - Rotation (and reflection) equivariance, for any orthogonal matrix $Q\in \mathbb{R}^{n\times n}$, let $Q\mathbf{x}$ to be shorthand of $(Qx_1,Qx_2,...,Qx_M)$. Then rotating the input results in an equivalent rotation of the output $Q\mathbf{y}=Q\phi(\mathbf{x})=\phi(Q(\mathbf{x}))$
 - Permutation equivariance. Permuting the input results in the same permutation of the output $P(\mathbf{y})=P(\mathbf{\phi(x)})=\phi(P(\mathbf{x}))$, where $P$ is a permutation on the row indexes.
 
-### 1.2. Graph Neural Networks
+###  Graph Neural Networks
 
 Graph Neural Networks are permutation equivariant networks that operate on graph structured data, given a graph $\mathcal{G}=(\mathcal{V},\mathcal{E})$, with nodes $v_i\in \mathcal{V}$ and edges $e_{ij}\in\mathcal{E}$, we can define a graph convolution layer:
+
 $$
 \begin{aligned}
 m_{ij}&=\phi_e(h_i^l,h_j^l,a_{ij})\\
 m_i&=\sum_{j\in\mathcal{N(i)}}m_{ij}\\
 h_i^{l+1}&=\phi_h(h_i^l,m_i)
-
 \end{aligned}
 $$
 
@@ -34,7 +34,7 @@ $$
 
 
 
-## 2. Equivariant Graph Neural Networks
+##  Equivariant Graph Neural Networks
 
 The Equivariant Graph Convolutional Layer (EGCL) takes as input the set of node embeddings $h^l=\{h_0^l,...,h_{M-1}^l\}$, coordinate embeddings $x^l=\{x_0^l,...,x_{M-1}^l\}$ and edge information $\mathcal{E}=(e_{ij})$ and outputs a transformation on $h^{l+1}$ and $x^{l+1}$. Which means $h^{l+1},x^{l+1}=\text{EGCL}(h^l,x^l,\mathcal{E})$, to be more detail, the equation that define this layer are the following:
 $$
@@ -46,9 +46,10 @@ h_i^{l+1}&=\phi_h(h_i^l,m_{i})
 \end{align}
 $$
 
-### 2.1. Proof of $\mathbf{E(n)}$ equivariance
+### Proof of E(n) equivariance
 
 The Message block should satisfy the translation equivariant on $\mathbf{x}$ on any translation vector $g\in \mathbb{R}^n$ and it should also be rotation and reflection equivariant on $\mathbf{x}$ for any orthogonal $Q\in \mathbb{R}^{n\times n}$
+
 $$
 Q\mathbf{x}^{l+1} +g,\, \mathbf{h}^{l+1}=\text{EGCL}(Q\mathbf{x}^l+g, \mathbf{h}^l)
 $$
@@ -56,7 +57,7 @@ $$
 
 Since the embedding vector $h$ is based on node $v_i$, so we do not encode any information about the absolute position or orientation of $x_0$ into $h_0$. which means the $h$ is invariant to the $E(n)$ transformations. Then the message in equation (3) gained by the edge and nodes are invariant to translations $\lVert x_i^l+g-x_j^l+g^2\rVert=\lVert x_i^l-x_j^l\lVert^2$, and it's invariant to the rotation and reflections: $\lVert Qx_i^l-Qx_j^l\rVert^2=(x_i^l-x_j^l)^\top Q^\top Q(x_i^l-x_j^l)=(x_i^l-x_j^l)^\top\mathbf{I}(x_i^l-x_j^l)=\lVert x_i^l-x_j^l\rVert^2$,  such that the edge operation becomes invariant:
 $$
-m_{ij}=\phi_e(h^l_i,h^l_j,\lVert(Qx_i^l+g)-(Qx_j^l+g)\rVert^2,a_{ij} =\phi_e(h^l_i,h^l_j,\lVert x_i^l-x_j^l\rVert^2,a_{ij})
+m_{ij}=\phi_e\Big(h^l_i,h^l_j,\lVert(Qx_i^l+g)-(Qx_j^l+g)\rVert^2,a_{ij}\Big) =\phi_e(h^l_i,h^l_j,\lVert x_i^l-x_j^l\rVert^2,a_{ij})
 $$
 
 
@@ -64,7 +65,7 @@ The we want to prove the equation (4):
 
 
 $$
-Qx_i^{l+1}+g=Qx_i^l+g+C\sum_{j\neq i}(Qx_i^l+g-Qx_j^l+g)\phi_x(m_{ij})
+Qx_i^{l+1}+g=Qx_i^l+g+C\sum_{j\neq i}(Qx_i^l+g-Qx_j^l-g)\phi_x(m_{ij})
 $$
 derivation:
 $$
@@ -77,7 +78,7 @@ $$
 
 
 
-### 2.3. Extending EGNNs for vector type representations
+### Extending EGNNs for vector type representations
 
 In some scenarios, it can be useful to obtain an estimate of velocity of the particle at each layer, and also in some cases the initial velocity is not 0. By slightly modify the equation (4):
 $$

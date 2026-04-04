@@ -1,8 +1,8 @@
 # Introduction to Deep learning
 
-## 1. Feed-Forward Neural Nets
+## Feed-Forward Neural Nets
 
-### 1.1. Perceptrons
+### Perceptrons
 
 Perceptrons were invented as simple computational models of neurons. A single neuron typically has many inputs (dendrites), a cell body, and a single output (the axon). Echoing this, the perceptron takes many inputs and has one output.
 
@@ -50,7 +50,7 @@ $\left\{\begin{aligned}&\text{training set}\rightarrow\text{It is used to adjust
 
 We go through the training data multiple times. Each pass through the data is called an <u>epoch.</u>
 
-### 1.2. Loss Functions for Neural Nets
+###  Loss Functions for Neural Nets
 
 <img src="assets/image-20240813210237693.png" alt="image-20240813210237693" style="zoom:67%;" />
 
@@ -152,11 +152,11 @@ In general, the smaller the batch size, the smaller the learning rate $\mathcal{
 
 
 
-# 2.Convolutional Neural Networks
+## Convolutional Neural Networks
 
 The NNs considered so far have all been fully connected. That is, they have the property that all the linear units in a layer are connected to all the linear units in the next layer.However, there is no requirement that NNs have this particular form. We can certainly imagine doing a forward pass where a linear unit feeds its output to only some of the next layer’s units. One special case of partially connected NNs is convolutional neural net- works. Convolutional NNs are particularly useful in computer vision,
 
-### 2.1. The Convolution Operation
+###  The Convolution Operation
 
 Suppose we are tracking the location of a spaceship with a laser sensor. Our laser sensor provides a single output $x(t)$, the position of the spaceship at time $t$. Both $x$ and $t$ are real valued, that is, we can get a different reading from the laser sensor at any instant in time.
 
@@ -200,7 +200,7 @@ $$
 
 <center>Figure 2.1.An example of 2-D convolution without kernel flipping. We restrict the output to only positions where the kernel lies entirely within the image, called “valid” convolution in some contexts. We draw boxes with arrows to indicate how the upper-left element of the output tensor is formed by applying the kernel to the corresponding upper-left region of the input tensor.</center>
 
-### 2.2.Motivation
+### Motivation
 
 Convolution leverages three important ideas that can help improve a machine learning system:
 
@@ -236,7 +236,7 @@ $(f * g)(x - a) = (T_a (f * g))(x)$
 
 So, $(T_a f) * g = T_a(f * g)$
 
-### 2.3. Pooling
+### Pooling
 
 Pooling helps to make the representation approximately invariant to small translations of the input.
 

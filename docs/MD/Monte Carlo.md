@@ -1,8 +1,8 @@
 # Monte Carlo Integration and Monte Carlo Simulation
 
-## 1. Foundations of Monte Carlo & Random Sampling
+## Foundations of Monte Carlo & Random Sampling
 
-### 1.1. **Statistical Approaches to Numerical Estimation**
+### **Statistical Approaches to Numerical Estimation**
 
 Monte Carlo (MC) methods are a broad class of computational algorithms which rely on repeated random sampling to obtain the distribution of an unknown, often probabilistic entity. They are particularly useful for problems in which it is difficult (or impossible) to obtain a closed-form expression, or to apply a deterministic algorithm
 
@@ -13,7 +13,7 @@ To get the estimation of a function or integral, we have two approaches:
 
 
 
-### 1.2. Importance sampling
+### Importance sampling
 
 When evaluating high-dimensional integrals for molecular systems, simple uniform random sampling is incredibly inefficient. we can deliberately generate samples according to a distribution that focuses on the minuscule regions that actually contribute to the integral.
 
@@ -40,8 +40,7 @@ $$
 f(x|\mu,\sigma) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}
 $$
 
-
-### 1.3. Random sampling
+### Random sampling
 
 Monte Carlo methods require a source of randomness. It is desirable that these random numbers are delivered as a stream of $U[0,1]$ independent random variables. It is a necessity to generate random numbers uniformly, such that bias is not introduced into any physical property we wish to predict or estimate. 
 
@@ -62,9 +61,9 @@ $$
 
 
 
-## 2. Markov Processes & Metropolis Algorithm
+## Markov Processes & Metropolis Algorithm
 
-### 2.2 Markov Processes
+### Markov Processes
 
 **Stochastic process** is a movement through a series of well-defined states in a way that involves some element of randomness. And **Markov process** is stochastic process that has no memory,  selection of next state depends only on current state, and not on prior states. $P(x_t|x_{t-1},x_{t-2},...,x_{t0})=P(x_t|x_{t-1})$
 
@@ -134,7 +133,7 @@ $$
 
 
 
-## 3. Trial Move
+## Trial Move
 
 
 

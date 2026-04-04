@@ -1,6 +1,6 @@
 # Introduction to Quantum Mechanics
 
-## 1. Postulates of Quantum Mechanics
+## Postulates of Quantum Mechanics
 
 **Postulate No. 1.**
 
@@ -59,7 +59,7 @@ The total wave function must be antisymmetric with respect to the interchange of
 
 
 
-## 2. The $\textbf{Schr\"odinger}$ Equation For The Hydrogen-like Systems
+## The $\textbf{Schr\"odinger}$ Equation For The Hydrogen-like Systems
 
 Start form the $\text{Schr\"odinger}$ equation, the $\hat{H}\Psi = \hat{E}+\hat{V} = (-\frac{\bar{h^2}}{2m}\nabla^2 + V)\Psi$
 
@@ -162,7 +162,6 @@ And also for the **angular function**:
 $$
 \frac{1}{\sin\theta}\frac{\partial}{\partial \theta}(\sin\theta\frac{\partial Y}{\partial\theta})+\frac{1}{\sin^2\theta}\frac{\partial^2Y}{\partial\phi^2}+AY=0
 $$
-
 
 ### Separating The Angular Part Into Polar And Azimuth Parts
 

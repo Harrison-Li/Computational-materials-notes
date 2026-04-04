@@ -1,6 +1,6 @@
 # Computational Materials Science Notes
 
-My notes from studying **Machine Learning** with a **materials science** background as a beginner. These files mainly contain **theoretical knowledge** about AI and AI for materials.  
+My notes from studying **Machine Learning** and **Computational Science** as a beginner. These files mainly contain **theoretical knowledge** about both AI and AI for materials.  
 🛠️ Practical code is still in progress (I'm working on it! 🥹)
 
 ## 📖 Read as a Web Book
@@ -19,10 +19,7 @@ This repository is published as an interactive web-based book using Jupyter Book
 
 ## 🔄 Incoming Updates
 
-I'm currently learning **quantum mechanics** and exploring **high-throughput computational methods** to calculate material properties more accurately. I'm also trying to understand:
-
-- **Machine Learning Interatomic Potential (MLIP)**
-- **AI for Quantum Chemistry (AIQC)**
+Waiting for your suggestions!
 
 📌 I’ll continue to publish notes as I make progress.  
 
@@ -38,6 +35,7 @@ ML/Applied math.md
 ML/Introduction to machine learning.md
 ML/Introduction to Deep learning.md
 ML/Loss function.md
+ML/Activation function.md
 ML/E(n) Equivariant Graph Neural Networks.md
 ML/Denoising Diffusion Probabilistic Models.md
 ML/Dimensionality Reduction.md
@@ -101,13 +99,14 @@ Atomic simulation of materials/DFT in solids.md
 
 ```{toctree}
 :hidden:
-:caption: Python
+:caption: Python and torch
 Python/Coding Practices.md
 Python/creating-reading-and-writing_view.md
 Python/Data visualization.md
 Python/indexing-selecting-assigning_view.md
 Python/Pandas.md
 Python/Python Tutorial.md
+torch/baisc.ipynb
 ```
 
 ```{toctree}
@@ -117,4 +116,3 @@ Agent/Agent architectures.md
 Agent/Langgraph.md
 Agent/Langgraph.md
 ```
-

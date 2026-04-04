@@ -2,7 +2,7 @@
 
 
 
-## 1. Proximal Policy Optimization (PPO)
+## Proximal Policy Optimization (PPO)
 
 Proximal Policy Optimization (PPO)  is an actor-critic RL algorithm that is widely used in the RL fine-tuning stage of LLMs. In particular, it optimizes LLMs by maximizing the following surrogate objective:
 $$
@@ -20,7 +20,7 @@ $$
 
 
 
-### 1.1. Generalized Advantage Estimation (GAE)
+### Generalized Advantage Estimation (GAE)
 
 To calculate the advantage, we apply **Generalized Advantage Estimation (GAE)** on the rewards $r_t$ and a learned value function $V_\omega$ given by critic (value) model.
 
@@ -46,7 +46,7 @@ $$
 
 <span style="color: red;">The main idea of GAE is that, just like human intuition, like a long text page, the token at end of the page should has little correlation with the token in the middle, and it's represented by $\color{red}(r\lambda)^n$ which will decay at long sequence in GAE</span>
 
-### 1.2. Reward
+### Reward
 
 And the $r_t$ is calculated by the reward function penalize the reward with KL compared with reference model at per-token level, since we don't want to our model deviate too much from the pre-trained model in order to avoid the model crash for getting higher reward:
 $$
@@ -62,7 +62,7 @@ $$
 - $\pi_\text{ref}$ is the reference model, which is usually the initial supervised fine-tuning (SFT) model
 - $\beta$ is the coefficient of the KL penalty
 
-## 2. Group Relative Policy Optimization (GRPO)
+## Group Relative Policy Optimization (GRPO)
 
 Since the value function is employed in PPO to mitigate over-optimization of the reward model, that model should has comparable size as policy model, which brings a substantial memory and computation burden. Additionally, during RL training, the value function is treated as a baseline in the calculation of the advantage for variance reduction.While in the LLM context, usually only the last token is assigned a reward score by the reward model, which may complicate the training of a value function that is accurate at each token.
 
@@ -103,7 +103,7 @@ which is guaranteed to be positive.
 
 
 
-### 2.1. Process Supervision RL with GRPO
+###  Process Supervision RL with GRPO
 
 Suppose for each question $q$, we got a group of outputs $\{o_1,...,o_G\}$ which are sampled from the old policy model $\pi_\text{ref}$. A reward model will score the outputs and give reward scores $\{r_1,...,r_G\}$. Subsequently, these rewards are normalized by subtracting the group average and dividing by the group standard deviation. Such outcome normalized reward at the end of each output $\large o_i$ will be used for the advantage $\hat{A_{i,t}}=\dfrac{r_i-r_\text{mean}}{\text{std(r)}}$. Then the final advantage will be $A =\sum_l \hat{A_{i,t}^l}$, $l\in K$ where $l$ is the end token index and $K$ is the total number of steps in the $i$-th output.
 

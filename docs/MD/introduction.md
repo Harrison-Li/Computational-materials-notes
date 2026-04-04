@@ -4,14 +4,14 @@
 
 
 
-|           Types           |    Time scale     | Time scale (s)          |
-| :-----------------------: | :---------------: | ----------------------- |
-|      Bond vibration       | 1 fs; Femtosecond | $10^{-15}$ s            |
-|   Collective vibration    | 1 ps; Picosecond  | $10^{-12}$ s            |
-| Conformational transition |   ps or longer    | $>10^{-12}$             |
-|     Enzyme catalysis      |   $\mu$s to ms    | $10^{-6}\sim 10^{-3}$ s |
-|      Ligand binding       |   $\mu$s to ms    | $10^{-6}\sim 10^{-3}$   |
-|      Protein folding      |      ms to s      | $10^{-3}\sim 10^0$ s    |
+|           Types           |      Time scale      | Time scale (s)          |
+| :-----------------------: | :------------------: | ----------------------- |
+|      Bond vibration       |  1 fs; Femtosecond   | $10^{-15}$ s            |
+|   Collective vibration    |   1 ps; Picosecond   | $10^{-12}$ s            |
+| Conformational transition |     ps or longer     | $>10^{-12}$             |
+|     Enzyme catalysis      |     $\mu$s to ms     | $10^{-6}\sim 10^{-3}$ s |
+|      Ligand binding       |     $\mu$s to ms     | $10^{-6}\sim 10^{-3}$   |
+|      Protein folding      | ms; millisecond to s | $10^{-3}\sim 10^0$ s    |
 
 For an atomistic simulation, it typically use an iteration time step of 1 fs (to capture bond vibrations)
 

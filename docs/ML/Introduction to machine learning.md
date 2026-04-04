@@ -1,6 +1,6 @@
 # Introduction to Machine learning
 
-## 1. Learning Algorithms
+## Learning Algorithms
 
 A machine learning algorithm is an algorithm that is able to learn from data.
 
@@ -21,7 +21,7 @@ $$
 \text{MSE}_\text{test}=\frac{1}{m}\sum_i(\hat{y}^{\text{test}}-y^\text{test})^2_i
 $$
 
-## 2.Capacity, Overfitting and Underfitting
+## Capacity, Overfitting and Underfitting
 
 **Generalization:** The ability to perform well on previously unobserved inputs
 
@@ -44,7 +44,7 @@ We can control whether a model is more likely to overfit or underfit by altering
 > - Choose simpler functions that are more likely to be generalize (to have a small gap between training and test error).
 > - choose a suﬃciently complex hypothesis to achieve low training error.
 
-### 2.2. Regularization
+###  Regularization
 
 Regularization is any modification we make to a learning algorithm that is intended to reduce its generalization error but not its training error. 
 
@@ -60,7 +60,7 @@ we minimize a sum comprising both the mean squared error on the training and a c
 
 ![image-20250212200042556](assets/image-20250212200042556.png)
 
-### 2.3. Hyperparameters and Validation Sets
+### Hyperparameters and Validation Sets
 
 **Hyperparameters**
 
@@ -70,7 +70,7 @@ They are settings we can use to control the algorithms' behavior. The hyper para
 
 Earlier we talked about training and test set, test set is used to estimate the generalization error of the model, after the learning process completed. So, it's important that test examples can not be used in any way to adjust the model including its hyper parameters. Therefore, we need to separate a new set (validation set) from training data to learn the parameters (<u>training set</u>) and estimate the generalization error during or after training (<u>validation set</u>), allowing for the hyperparameters to be updated accordingly.  After all hyper parameter optimization is complete, the generalization error may be estimated using the test set.
 
-#### 2.3.1. Cross-Validation
+####  Cross-Validation
 
 When the dataset has hundreds of thousands of examples or more, this is not a serious issue. When the dataset is too small, are alternative procedures enable one to use all the examples in the estimation of the mean test error, at the price of increased computational cost. These procedures are based on the idea of repeating the training and testing computation on diﬀerent randomly chosen subsets or splits of the original dataset. The most common of these is the k-fold cross-validation procedure, shown in algorithm 5.1, in which a partition of the dataset is formed by splitting it into k nonoverlapping subsets. The test error may then be estimated by taking the average test error across k trials. On trial i, the i-th subset of the data is used as the test set, and the rest of the data is used as the training set.
 

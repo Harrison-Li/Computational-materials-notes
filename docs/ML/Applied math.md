@@ -1,4 +1,6 @@
-# Introduction
+# Applied math
+
+## Introduction
 
 **Feature:** Each piece of information included in the representation
 
@@ -12,17 +14,17 @@ When designing features or algorithms for learning features, our goal is usually
 
 **“factors”** simply to refer to separate sources of influence
 
-# 3. Probability Theory
+## Probability Theory
 
-## 3.1. Random Variables
+### Random Variables
 
 A **random variable** is a variable that can take on diﬀerent values randomly.
 
-## 3.2. Probability Distributions
+### Probability Distributions
 
 A **probability distribution** is a description of how likely a random variable or set of random variables is to take on each of its possible states. The way we describe probability distributions depends on whether the variables are discrete or continuous.
 
-### 3.2.1. Discrete Variables and Probability Mass Functions
+####  Discrete Variables and Probability Mass Functions
 
 **probability mass function(PMF):** A probability distribution over discrete variables 
 
@@ -52,7 +54,7 @@ To be a PMF on a random variable x, a function P must satisfy the following prop
 - $\forall x\in\text{x},0\le P(x)\le1.$ An impossible event has probability 0, and no state can be less probable than that. Likewise, an event that is guaranteed to happen has probability 1, and no state can have a greater chance of occurring.
 - $\sum_{x\in\text{x}}P(x)=1$. We refer to this property as being **normalized**. Without this property, we could obtain probabilities greater than one by computing the probability of one of many events occurring.
 
-### 3.2.2. Continuous Variables and Probability Density Functions
+#### Continuous Variables and Probability Density Functions
 
 When working with continuous random variables, we describe probability distributions using a **probability density function (PDF)** rather than a probability mass function.
 
@@ -66,7 +68,7 @@ following properties:
 
 A probability density function p(x) does not give the probability of a specific state directly; instead the probability of landing inside an infinitesimal region with volume δx is given by $p(x)\delta x$.
 
-## 3.3. Marginal Probability
+### Marginal Probability
 
 Sometimes we know the probability distribution over a set of variables and we want to know the probability distribution over just a subset of them. The probability distribution over the subset is known as the **marginal probability distribution**.
 
@@ -80,21 +82,20 @@ For continuous variables:
 
 $p(x)=\int p(x,y)dy$
 
-## 3.4. Conditional Probability
+### Conditional Probability
 
 In many cases, we are interested in the probability of some event, given that some other event has happened. This is called a conditional probability. 
 
 $$P(\text{y} = y \mid \text{x} = x) = \frac{P(\text{y} = y, \text{x} = x)}{P(\text{x} = x)}$$
 The conditional probability is only defined when $P(\text{x} = x) >0$.
 
-
-### 3.4.1. The Chain Rule of Conditional Probabilities
+#### The Chain Rule of Conditional Probabilities
 
 Any joint probability distribution over many random variables may be decomposed into conditional distributions over only one variable:
 
 $$P(x^{(1)}, \ldots,x^{(n)}) = P({x}^{(1)}) \prod_{i=2}^n P(x^{(i)} \mid x^{(1)}, \ldots, x^{(i-1)}).$$
 
-### 3.4.2. Independence and Conditional Independence
+####  Independence and Conditional Independence
 
 Two random variables x and y are independent if their probability distribution can be expressed as a product of two factors, one involving only x and one involving only y:
 $$\forall x\in \text{x},y\in \text{y},\quad p(\text{x}=x,\text{y}=y)=p(\text{x}=x)p(\text{y}=y)$$
@@ -106,7 +107,7 @@ $\text{x}\perp \text{y}$ means x and y are independent.
 
 $\text{x}\perp\text{y}\mid\text{z}$ means that x and y are conditionally independent given z.
 
-## 3.5. Expectation, Variance and Covariance
+### Expectation, Variance and Covariance
 
 **Expectation (Expectation value)**
 
@@ -148,19 +149,19 @@ High absolute values of the covariance mean that the values change very much and
 
 Normalize the contribution of each variable in order to measure only how much the variables are related, rather than also being aﬀected by the scale of the separate variables.
 
-## 3.6. Common Probability Distributions
+### Common Probability Distributions
 
-### 3.6.1. 
+#### Bernoulli distribution
 
 The **Bernoulli distribution **is a distribution over a single binary random variable. It is controlled by a single parameter φ∈[0,1], which gives the probability of the random variable being equal to 1. It has the following properties:
 
 $$P(\text{x}=1)=\phi\\ P(\text{x}=0)=1-\phi\\ P(\text{x}=x)=\phi^x(1-\phi)^{1-x}\\ \mathbb{E}_\text{x}[\text{x}]=\phi\\ \text{Var}_\text{x}(\text{x})=\phi(1-\phi)$$
 
-### 3.6.2. Multinoulli Distribution
+####  Multinoulli Distribution
 
 The multinoulli, or categorical, distribution is a distribution over a single discrete variable with k diﬀerent states, where k is finite. The multinoulli distribution is parametrized by a vector $p\in[0,1]^{k−1}$, where pi gives the probability of the $i$-th state. The final, $k$-th state’s probability is given by $1-1\top p\le1$. Note that we must constrain $1\top p\le1$​. Multinoulli distributions are often used to refer to distributions over categories of objects, so we do not usually assume that state 1 has numerical value 1, and so on. For this reason, we do not usually need to compute the expectation or variance of multinoulli-distributed random variables.
 
-### 3.6.3. Gaussian Distribution
+#### Gaussian Distribution
 
 The most commonly used distribution over real numbers is the **normal distribution**, also known as the **Gaussian distribution**:
 
@@ -180,7 +181,7 @@ $$\mathcal{N}(x;\mu,\Sigma)\sqrt{\frac{1}{(2\pi)^n\det(\Sigma)}}\exp(-\frac{1}{2
 - parameter $\mu$ still gives the mean of the distribution
 - parameter $\Sigma$ gives the covariance matrix of the distribution.
 
-### 3.6.4. Exponential and Laplace Distributions
+#### Exponential and Laplace Distributions
 
 **Exponential distribution**
 
@@ -195,7 +196,7 @@ The exponential distribution uses the indicator function $\mathbf{1}_{x\ge0}$ to
 A closely related probability distribution that allows us to place a sharp peak of probability mass at an arbitrary point $\mu$ is the Laplace distribution
 $$\text{Laplace}(x;\mu,\gamma)=\frac{1}{2\gamma}\exp(-\frac{|x-\mu|}{\gamma})$$
 
-### 3.6.5. The Dirac Distribution and Empirical Distribution
+#### The Dirac Distribution and Empirical Distribution
 
 In some cases, we wish to specify that all the mass in a probability distribution clusters around a single point. This can be accomplished by defining a PDF using the **Dirac delta function**, $\delta(x)$:
 $$p(x)=\delta(x-\mu)$$
@@ -207,23 +208,23 @@ $$\hat{p}(x)=\frac{1}{m}\sum_{i=1}^m\delta(x-x^{(i)})$$
 
 which puts probability mass $\frac{1}{m}$ on each of the $m$ points $x^{(1)}\ldots x^{(m)}$, forming a given data set or collection of samples. The Dirac delta distribution is only necessary to define the empirical distribution over continuous variables. For discrete variables, the situation is simpler: an empirical distribution can be conceptualized as a multinoulli distribution, with a probability associated with each possible input value that is simply equal to the **empirical frequency** of that value in the training set.
 
-### 3.6.6. Mixtures of Distributions
+#### Mixtures of Distributions
 
 One common way of combining distributions is to construct a mixture distribution. A mixture distribution is made up of several component distributions. On each trial, the choice of which component distribution should generate the sample is determined by sampling a component identity from a multinoulli distribution:
 $$P(\text{x})=\sum_iP(c=i)P(\text{x}\mid c=i)$$
 where $P(c)$ is the multinoulli distribution over component identities.
 
-## 3.7. Useful Properties of Common Functions
+### Useful Properties of Common Functions
 
 Certain functions arise often while working with probability distributions, especially the probability distributions used in deep learning models.
 
-### 3.7.1. Logistic sigmoid
+####  Logistic sigmoid
 
 $$\sigma(x)=\frac{1}{1+\exp{(-x)}}$$
 
 ![image-20250124164504682](assets/image-20250124164504682.png)
 
-### 3.7.2. Softplus function
+#### Softplus function
 
 $$\zeta(x)=\log{(1+\exp{(x)})}$$
 
@@ -231,7 +232,7 @@ The softplus function can be useful for producing the β or σ parameter of a no
 
 ![image-20250124165241098](assets/image-20250124165241098.png)
 
-## 3.8. Bayes' Rule
+####  Bayes' Rule
 
 To find $P(x|y)$ when we already know the $p(y|x)$ and $p(x)$
 
@@ -243,7 +244,7 @@ Even $P(y)$ appears in the formula, we can substituted it: $P(y)=\sum_xP(y|x)P(x
 
 
 
-## 3.9. Structured Probabilistic Models
+## Structured Probabilistic Models
 
 Machine learning algorithms often involve probability distributions over a very large number of random variables. Often, these probability distributions involve direct interactions between relatively few variables. Using a single function to describe the entire joint probability distribution can be very ineﬃcient (both computationally and statistically).
 
@@ -295,7 +296,7 @@ $$p(x)=\frac{1}{Z}\prod_i\phi^{(i)}(\mathcal{C}^{(i)})$$
 
 e.g. $p(a,b,c,d,e)=\frac{1}{Z}\phi^{(1)}(a,b,c)\phi^{(2)}p(b,d)\phi^{(3)}p(c,e)$
 
-# 4. Information Theory
+## Information Theory
 
 Information theory is a branch of applied mathematics that revolves around quantifying how much information is present in a signal. In the context of machine learning, we can also apply information theory to continuous variables where some of these message length interpretations do not apply. Information theory tells how to design optimal codes and calculate the expected length of messages sampled from specific probability distributions using various encoding schemes.
 
@@ -334,9 +335,9 @@ Difference between KL divergence between $D(P||Q)$ and $D(Q||P)$
 
 ![image-20260312151225386](assets/KL.png)
 
-# 5. Numerical Computation
+## Numerical Computation
 
-## 5.1. Overflow and Underflow
+### Overflow and Underflow
 
 In ML, we need to represent infinitely many real numbers with a finite number of bit patterns, we incur some approximation error when we represent the number in the computer, rounding error will be accumulated for many operations like the algorithms.
 
@@ -352,7 +353,7 @@ To stabilize the underflow or the overflow, normalization should be applied to r
 
 $$\text{softmax}(x)_i=\frac{\exp{x_i}}{\sum_{j=1}^n\exp{x_j}}$$
 
-## 5.2. Poor Conditioning
+###  Poor Conditioning
 
 Conditioning refers to how rapidly a function changes with respect to small changes in its inputs. Functions that change rapidly when their inputs are perturbed slightly can be problematic for scientific computation because rounding errors in the inputs can result in large changes in the output.
 
@@ -368,7 +369,7 @@ $$\kappa(A)=||A||\cdot||A^{-1}||=\max_{i,j} \left| \frac{\lambda_i}{\lambda_j}\r
 
 This is the ratio of the magnitude of the largest and smallest eigenvalue. When this number is large, matrix inversion is particularly sensitive to error in the input.
 
-## 5.3. Gradient-Based Optimization
+###  Gradient-Based Optimization
 
 Optimization refers minimize or maximize a function $f(x)$ by adjusting $x$. (Minimization is standard; maximization is achieved by minimizing $−f(x)$)
 

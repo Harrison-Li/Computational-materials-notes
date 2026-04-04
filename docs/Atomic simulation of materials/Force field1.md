@@ -1,6 +1,6 @@
 # Force Field 1
 
-## 1. Conservation of Energy, Kinetic and Potential Energies
+## Conservation of Energy, Kinetic and Potential Energies
 
 ### Conservation of Energy
 
@@ -69,7 +69,7 @@ $$
 
 
 
-## 2. The Potential Energy Surface
+## The Potential Energy Surface
 
 Above figures only deals with diatomic potentials, how about molecules with atom (n>2)?
 $$
@@ -79,7 +79,7 @@ Complex potential energy surface PES of a molecule including a multitude of loca
 
 <img src="assets/image-20250821230825404.png" alt="image-20250821230825404" style="zoom:50%;" />
 
-## 3. Force Fields & Interatomic Potentials
+## Force Fields & Interatomic Potentials
 
 In **force filed (FF)** methods, the electronic energy is written as a parametric function of the positions of the nuclei in the molecule or materials. The parameters entering the parametric/empirical functions are fitted from existing experimental data or high-level computational data.
 
