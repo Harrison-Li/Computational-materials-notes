@@ -10,11 +10,7 @@ Here $(x_i-x_j)$ is the Euclidean distance between two atoms.
 
 ![image-20250826160559810](assets/image-20250826160559810.png)
 
-In EAM, the total energy of a metal is assumed to be 
-
-
-
-
+In EAM, the total energy of a metal is assumed to be
 
 ## Optimization methods
 
@@ -26,11 +22,11 @@ where $\vec{r}$ is the coordinate system of reference $x, y, z$
 
 ### The Steepest Descent Method
 
-
+$$
+x_{t+1}=x_t-\alpha \nabla f(x_t)
+$$
 
 ![image-20250826161742197](assets/image-20250826161742197.png)
-
-
 
 ### The Conjugated Gradient Method
 
@@ -41,29 +37,16 @@ $$
 several schemes for decide the $\beta$
 
 - $\beta_i^\text{FR}=\frac{g_i^Tg_i}{g_{i-1}^Tg_{i-1}}$
-- 
-
-
+-
 
 ### Mote Carlo
 
 Starting from generating a random move $r_{AB},\theta_{ABC},\phi_{ABCD},r_{BC}....$
 
-
-
-
-
 $\begin{bmatrix}
 r\\s
 \end{bmatrix}$
 
-
-
-
-
 ## Periodic boundary condition in simulation
 
-
-
 <img src="assets/image-20250826165218242.png" alt="image-20250826165218242" style="zoom:50%;" />
-

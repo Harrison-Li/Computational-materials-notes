@@ -70,9 +70,9 @@ $$
 >
 > **Generalized coordinates** are the absolute minimum number of independent variables required to completely define the configuration of a system, taking any physical constraints into account. They are conventionally denoted by the symbol $q$.
 >
-> $f=3N-m$, the number of generalized coordinates $q_1,q_2,...,q_f $ needed.
+> $f=3N-m$, the number of generalized coordinates $q_1,q_2,...,q_f$ needed.
 >
-> e.g. A Rigid Diatomic Molecule in MD ($\{q_1,q_2, q_3,...,q_6\}\rightarrow \{x,y,z,\theta,\phi\} $)
+> e.g. A Rigid Diatomic Molecule in MD ($\{q_1,q_2, q_3,...,q_6\}\rightarrow \{x,y,z,\theta,\phi\}$)
 >
 > 2-D motion in central field $\{q_1,q_2\} =\{r,\theta\}$
 
@@ -340,7 +340,12 @@ The prime (′) indicates that we do not include the interaction of a charge wit
 
 - $L$ is the lattice vector of $L^{th}$ unit cells.
 
-Due to the slow convergence of $\frac{1}{r}$, and the number of interacting particles in a 3D space grows as $r^2$. The potential will increase with $U_\text{total}\propto \int_0^\infty rdr\rightarrow \infty$ (for single type shell charges), and in real crystals they are conditionally converge.
+Due to the slow convergence of $\frac{1}{r}$, and the number of interacting particles in a 3D space grows as $r^2$. The potential will increase with $U_\text{total}\propto \int_0^\infty rdr\rightarrow \infty$ (for single type shell charges).
+
+But in real crystals they are conditionally converge, because the summation of the repulsive term and attractive term, which yields a mathematically undefined ‭‬‭‬ $\infty-\infty$ situation, so, directly sum of $1/r$ is conditionally convergent, but that means the final result depends entirely on the order of summation.
+
+- Option A: $\sum^n_0 (e-e) + (e-e)+ ...\rightarrow 0$
+- Option B: $\sum_0^n (e+e-e) + (e+e-e)+ ...\rightarrow +\infty$
 
 So, to deal with slow convergence, Ewald propose to calculate the potential splitter into a **short-range** part calculated in real space, and a **long-range** part calculated in reciprocal (Fourier) space.
 $$

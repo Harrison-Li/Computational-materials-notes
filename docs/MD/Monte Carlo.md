@@ -11,21 +11,17 @@ To get the estimation of a function or integral, we have two approaches:
 - Methodical Integration: You pick points on a rigid, evenly spaced grid, like in the trapezoid or Simpson's rule
 - Monte Carlo Integration: You pick points entirely at random
 
-
-
 ### Importance sampling
 
 When evaluating high-dimensional integrals for molecular systems, simple uniform random sampling is incredibly inefficient. we can deliberately generate samples according to a distribution that focuses on the minuscule regions that actually contribute to the integral.
 
 **Probability distribution function (PDF)**
 
- <img src="assets/image-20260304212501905.png" width="300"> $$P(a \le X \le b) = \int_a^b p(x)\,dx$$ 
+ <img src="assets/image-20260304212501905.png" width="300"> $$P(a \le X \le b) = \int_a^b p(x)\,dx$$
 
 **Cumulative distribution function (CDF)**
 
-<img src="assets/image-20260304213600480.png" width="300" /> $$C(x)=\int p(x)dx\\p(x)=\frac{dc(x)}{dx}$$ 
-
-
+<img src="assets/image-20260304213600480.png" width="300" /> $$C(x)=\int p(x)dx\\p(x)=\frac{dc(x)}{dx}$$
 
 **Cauchy distribution (Lorentz distribution)**
 $$
@@ -42,7 +38,7 @@ $$
 
 ### Random sampling
 
-Monte Carlo methods require a source of randomness. It is desirable that these random numbers are delivered as a stream of $U[0,1]$ independent random variables. It is a necessity to generate random numbers uniformly, such that bias is not introduced into any physical property we wish to predict or estimate. 
+Monte Carlo methods require a source of randomness. It is desirable that these random numbers are delivered as a stream of $U[0,1]$ independent random variables. It is a necessity to generate random numbers uniformly, such that bias is not introduced into any physical property we wish to predict or estimate.
 
 **(Pseudo-)Random Number Generation**
 
@@ -59,8 +55,6 @@ x_i \equiv x_{i-r} + x_{i-s} \pmod M ,
 \end{aligned}
 $$
 
-
-
 ## Markov Processes & Metropolis Algorithm
 
 ### Markov Processes
@@ -71,10 +65,10 @@ $$
 
 And such probability is defined by the transition matrix $\pi_{ij}$, probability of selecting state $j$ next with given the present state $i$
 $$
-\Pi \equiv \begin{pmatrix} 
-\pi_{11} & \pi_{12} & \pi_{13} \\ 
-\pi_{21} & \pi_{22} & \pi_{23} \\ 
-\pi_{31} & \pi_{32} & \pi_{33} 
+\Pi \equiv \begin{pmatrix}
+\pi_{11} & \pi_{12} & \pi_{13} \\
+\pi_{21} & \pi_{22} & \pi_{23} \\
+\pi_{31} & \pi_{32} & \pi_{33}
 \end{pmatrix}
 $$
 
@@ -91,18 +85,18 @@ Requirement of transition matrix:
 
 e.g. for 2 step transition probability matrix, it's the product of itself:
 $$
-\Pi^2 = \begin{pmatrix} 
-\pi_{11} & \pi_{12} & \pi_{13} \\ 
-\pi_{21} & \pi_{22} & \pi_{23} \\ 
-\pi_{31} & \pi_{32} & \pi_{33} 
-\end{pmatrix} \times \begin{pmatrix} 
-\pi_{11} & \pi_{12} & \pi_{13} \\ 
-\pi_{21} & \pi_{22} & \pi_{23} \\ 
-\pi_{31} & \pi_{32} & \pi_{33} 
+\Pi^2 = \begin{pmatrix}
+\pi_{11} & \pi_{12} & \pi_{13} \\
+\pi_{21} & \pi_{22} & \pi_{23} \\
+\pi_{31} & \pi_{32} & \pi_{33}
+\end{pmatrix} \times \begin{pmatrix}
+\pi_{11} & \pi_{12} & \pi_{13} \\
+\pi_{21} & \pi_{22} & \pi_{23} \\
+\pi_{31} & \pi_{32} & \pi_{33}
 \end{pmatrix}\\
-=\begin{pmatrix} 
-\pi_{11}\pi_{11} + \pi_{12}\pi_{21} + \pi_{13}\pi_{31} & \pi_{11} \pi_{12} + \pi_{12} \pi_{22} + \pi_{13} \pi_{32} & etc. \\ 
-\pi_{21}\pi_{11} + \pi_{22}\pi_{21} + \pi_{23}\pi_{31} & \pi_{21} \pi_{12} + \pi_{22} \pi_{22} + \pi_{23} \pi_{32} & etc. \\ 
+=\begin{pmatrix}
+\pi_{11}\pi_{11} + \pi_{12}\pi_{21} + \pi_{13}\pi_{31} & \pi_{11} \pi_{12} + \pi_{12} \pi_{22} + \pi_{13} \pi_{32} & etc. \\
+\pi_{21}\pi_{11} + \pi_{22}\pi_{21} + \pi_{23}\pi_{31} & \pi_{21} \pi_{12} + \pi_{22} \pi_{22} + \pi_{23} \pi_{32} & etc. \\
 \pi_{31}\pi_{11} + \pi_{32}\pi_{21} + \pi_{33}\pi_{31} & \pi_{31} \pi_{12} + \pi_{32} \pi_{22} + \pi_{33} \pi_{32} & etc.
 \end{pmatrix}
 $$
@@ -164,7 +158,6 @@ In general, The transition probability $P(i \to j)$ for the Metropolis algorithm
 $$
 P(i \to j) = \tau_{ij} \cdot \min\left(1, \frac{\pi_j}{\pi_i}\right)
 $$
-
 
 ## Trial Move
 
@@ -228,13 +221,11 @@ $$
 \chi=\exp\Big[-\beta (\Delta U+ P\Delta V)+N\ln(V_\text{new}/V_\text{old})\Big]
 $$
 
-
-
 ### Insertion/Deletion trail move
 
 Gives new configuration of same volume but different number of molecules $(\mu VT)$
 
-- Selection: You propose adding/deleting a new particle to the system. 
+- Selection: You propose adding/deleting a new particle to the system.
 - Inserting trial: A random position $(x,y,z)$ is chosen within the simulation box.
 - Deleting trail: Remove a randomly selected molecule from the system
 - Trail state: The potential energy of this new/old particle interacting with all existing particles is calculated
@@ -263,11 +254,10 @@ $$
 >
 > $\text{delete: }N+1= N_\text{old}$
 
-
-
 ### Force-bias trail move
 
 <img src="assets/force_trial.png" alt="image-20260409234433514" style="zoom:50%;" />
+
 $$
 p(\delta r)=\prod_i^d\frac{e^{\lambda\beta f\delta r_i}}{c_i}
 $$
@@ -278,13 +268,12 @@ $$
 \chi=\frac{c_\text{old}}{c_\text{new}}e^{-\beta(U_\text{new}-U_\text{old})-\lambda\beta(f_\text{new}+f_\text{old})\cdot\delta r}
 $$
 
-
-
 ## Kinetic Monte Carlo simulation
 
 Transition state theory links Rate R of an event to the activation energy (barrier energy) $E_b$, it requires at a given temperature T, which usually described by Harmonic Transition State Theory (HTST):
 
 <img src="assets/transition_state.png" alt="image-20260409235856607" style="zoom:50%;" />
+
 $$
 R_{ij} = \nu_{ij} \exp\left(-\frac{\Delta E_{ij}}{k_B T}\right)
 $$
@@ -292,15 +281,13 @@ $$
 - $R_{ij}$ : The rate constant for the transition from state $i$ to state $j$ (units: $s^{-1}$).
 - $\nu_{ij}$ : The attempt frequency or pre-exponential factor. This is roughly how often the atom vibrates against the energy barrier (units: $s^{-1}$). It is often calculated using MD.
 
-
-
 ### Selection of movement
 
  **Metropolis Monte Carlo simulation**
 
 1. Choose an even $n\rightarrow m$ at random
 
-2. Implement the event with probability: 
+2. Implement the event with probability:
    $$
    \begin{aligned}\mathcal{H}(n)>\mathcal{H}(m)&\Rightarrow P(n\rightarrow m)=1\\\mathcal{H}(n)<\mathcal{H}(m)&\Rightarrow P(n\rightarrow m)=\exp{\Big(-\frac{\mathcal{H}(m)-\mathcal{H}(n)}{k_BT}\Big)} \end{aligned}
    $$
@@ -319,21 +306,19 @@ Using a physical rates $R(n\rightarrow m)$ for a given model
    R_\text{tot}(n)=\sum_{m=1}^M\Big(R(n\rightarrow m)\Big)
    $$
 
-3. Choosing the Next Event: KMC uses random numbers $\sigma$ to pick which event happens next, weighted by their probabilities. An event with a higher rate $R_{n\rightarrow m}$ (lower energy barrier) is more likely to be chosen. 
+3. Choosing the Next Event: KMC uses random numbers $\sigma$ to pick which event happens next, weighted by their probabilities. An event with a higher rate $R_{n\rightarrow m}$ (lower energy barrier) is more likely to be chosen.
 
 $$
 \sum_{m=1}^{M-1}R_{nm}<\sigma\cdot R_\text{tot}(n)\leq \sum_{m=1}^MR_{nm}
 $$
 
-
-
-4. Unlike standard MD where time steps are fixed, time in KMC is dynamic. The time it takes for an event to happen depends on the total rate $R_{tot}$. A second random number is used to advance the clock:
+1. Unlike standard MD where time steps are fixed, time in KMC is dynamic. The time it takes for an event to happen depends on the total rate $R_{tot}$. A second random number is used to advance the clock:
 
 $$
 \Delta t = -\frac{\ln(\sigma_2)}{R_{tot}}
 $$
 
-5. Times increment $t\leftarrow t+\Delta t$
+1. Times increment $t\leftarrow t+\Delta t$
 
 > [!NOTE]
 >
@@ -355,4 +340,3 @@ $$
 > $$
 > u = \exp(-R_\text{tot}\cdot t)\Rightarrow t=\dfrac{-\log u}{R_\text{tot}}
 > $$
-
