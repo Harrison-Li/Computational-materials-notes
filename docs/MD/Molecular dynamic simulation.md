@@ -115,6 +115,84 @@ $$
 
 ## Time integration algorithms
 
+To determine the motion of atoms in cartesian coordinates.
+$$
+\begin{aligned}
+\frac{d\mathbf{r_i}}{dt}=\frac{p_i}{m_i}\\
+\frac{d\mathbf{p_i}}{dt}=\mathbf{F_i}
+\end{aligned}
+$$
+For a good integrator algorithm: 
+
+1. Energy and force conservation 
+2. Minimum need to calculate the force, since gradient computation is expensive
+3. High stability for long times step to avoid crash
+4. Time reversible
+
+
+
+### Verlet Algorithm
+
+To expand the distance versus the times:
+$$
+\mathbf{r}(t+\delta t) = \mathbf{r}(t)+\frac{\mathbf{p}(t)}{m}\delta t+\frac{1}{2m}\mathbf{F}(t)\delta t^2+\frac{1}{3!}\dddot{r}\delta t^3+ ...\\
+\mathbf{r}(t-\delta t) = \mathbf{r}(t)-\frac{\mathbf{p}(t)}{m}\delta t+\frac{1}{2m}\mathbf{F}(t)\delta t^2-\frac{1}{3!}\dddot{r}\delta t^3+ ...\\
+$$
+
+$$
+\mathbf{r}(t+\delta t) = 2\mathbf{r}(t)+\frac{\mathbf{F}(t)}{m}\delta t^2-\mathbf{r}(t-\delta t)
+$$
+
+But this did not involve the velocity,  we can estimate the velocity by:
+$$
+v(t) \approx \frac{r(t+\Delta t) - r(t-\Delta t)}{2\Delta t}
+$$
+And replace the term in equation 10:
+$$
+\mathbf{r}(t+\Delta t) = \mathbf{r}(t) + \mathbf{v}(t)\Delta t + \frac{1}{2}\frac{\mathbf{F}(t)}{m}\Delta t^2\\
+\mathbf{v}(t+\Delta t) = \mathbf{v}(t) + \frac{1}{2m}\left[\mathbf{F}(t) + \mathbf{F}(t+\Delta t)\right]\Delta t
+$$
+Given: $r(t), v(t)$
+
+1. Compute force:
+   $F(t) = F(r(t))$
+
+2. Update position:
+   $r(t+\Delta t) = r(t) + v(t)*\Delta t + (1/2)*(F(t)/m)*\Delta t^2$
+
+3. Compute new force:
+   $F(t+\Delta t) = F(r(t+\Delta t))$
+
+4. Update velocity:
+   $v(t+\Delta t) = v(t) + (1/(2m)) * (F(t) + F(t+\Delta t)) * \Delta t$
+
+But the problem of Verlet are:
+
+- Velocity is **not stored**
+- it’s **less accurate for dynamics**
+- inconvenient in practice
+
+### Leapfrog Verlet
+
+$$
+\mathbf{v}\left(t+\frac{\Delta t}{2}\right) = \mathbf{v}\left(t-\frac{\Delta t}{2}\right) + \frac{\mathbf{F}(t)}{m}\Delta t\\
+\mathbf{r}(t+\Delta t) = \mathbf{r}(t) + \mathbf{v}\left(t+\frac{\Delta t}{2}\right)\Delta t
+$$
+
+
+
+Given: $r(t), v(t−\Delta t/2)$
+
+1. Compute $F(t)$
+
+2. Update velocity (half step):
+   $v(t+ \Delta t/2) = v(t−\Delta t/2) + (F(t)/m)\Delta t$
+
+3. Update position:
+   $r(t+\Delta t) = r(t) + v(t+\Delta t/2)\Delta t$
+
+
+
 ## Temperature and Pressure dependent MD
 
 For standard MD, it assumes an isolated system with constant energy. However, real world simulation is under const temperature or pressure. So, how to artificially add or remove energy to keep the temperature or pressure constant is a problem.

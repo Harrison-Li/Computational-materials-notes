@@ -4,11 +4,11 @@
 
 $\int\psi_{nlm}\psi_{n'l'm'}$
 
-$\left\{\begin{align}n=n',l=l',m=m'\rightarrow =1\\=0\end{align}\right.$
+$\left\{\begin{aligned}&n=n',l=l',m=m'\rightarrow &&=1\\&else&&=0\end{aligned}\right.$
 
 Spatial Spin
 
-$\left\{\begin{align}\alpha \,\text{for spin up}\\\beta\,\text{for spin down}\end{align}\right.$
+$\left\{\begin{aligned}\alpha \,\text{for spin up}\\\beta\,\text{for spin down}\end{aligned}\right.$
 
 $\int\alpha\alpha^\star=\int\beta\beta^\star=1$
 
@@ -22,7 +22,7 @@ Assume each $\psi_i$ is larger than the ground state
 
 Trail $\psi=\sum_iC_i\psi_i$ (linear combination of eigenvectors)
 
-$\left\{\begin{align}E-\epsilon_0=\frac{\sum|C_i|^2(\epsilon-\epsilon_0)}{\sum|C_i|^2}\\\epsilon_i\ge\epsilon_0\\|C_i|^2\ge 0\end{align}\right.$$\longrightarrow$ $E-\epsilon_0\ge 0$
+$\left\{\begin{aligned}&E-\epsilon_0=\frac{\sum|C_i|^2(\epsilon-\epsilon_0)}{\sum|C_i|^2}\\&\epsilon_i\ge\epsilon_0\\&|C_i|^2\ge 0\end{aligned}\right.$$\longrightarrow$ $E-\epsilon_0\ge 0$
 
 ## Multi-electron wavefunctions
 

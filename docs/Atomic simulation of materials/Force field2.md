@@ -43,9 +43,7 @@ several schemes for decide the $\beta$
 
 Starting from generating a random move $r_{AB},\theta_{ABC},\phi_{ABCD},r_{BC}....$
 
-$\begin{bmatrix}
-r\\s
-\end{bmatrix}$
+Details could be seen in note  [Monte Carlo.md](../MD/Monte Carlo.md) 
 
 ## Periodic boundary condition in simulation
 

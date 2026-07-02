@@ -1,23 +1,27 @@
 # Hartree-Fock
 
-## Multi-electron $\textbf{Schr\"odinger}$ Equation
+## Multi-electron Schrödinger Equation
 
 $$
 \hat{H}=\sum_ih_i + \sum_i\sum_j\frac{1}{r_{ij}}
 $$
 
-For a single electron integral $\epsilon_i=\int\mathcal{X_i}^*(x_i)h_i\mathcal{X_i}(x_i)dx_i$
+For a single electron integral $\epsilon_i=\int\chi_i^*(x_i)h_i\chi_i(x_i)dx_i$
 
-For two electron integral:  $\epsilon_i=\int\mathcal{X_1}^*(x_1)\mathcal{X_2}^*(x_2)h_i\mathcal{X_1}(x_1)\mathcal{X_2}(x_2)dx_1dx_2$
+For two electron integral:  $\epsilon_i=\int\chi_1^*(x_1)\chi_2^*(x_2)h_i\chi_1(x_1)\chi_2(x_2)dx_1dx_2$
 
 **Energy contribution**
 
-- Coulomb: $J =\int\mathcal{X_1}^*(x_1)\mathcal{X_2}^*(x_2)\frac{1}{|r_{12}|}\mathcal{X_1}(x_1)\mathcal{X_2}(x_2)dx_1dx_2 = \int|\mathcal{X_1}(x_1)^2|\frac{1}{r_{12}}|\mathcal{X_2}(x_2)^2|dx_1dx_2$
-- Exchange: $K =\int\mathcal{X_1}^*(x_1)\mathcal{X_2}^*(x_2)\frac{1}{|r_{12}|}\mathcal{X_1}(x_2)\mathcal{X_2}(x_1)dx_1dx_2 $
+- Coulomb: $J=\int \chi_1^*(x_1)\chi_1(x_1)\,\frac{1}{r_{12}}\,\chi_2^*(x_2)\chi_2(x_2)\,dx_1\,dx_2 = \int|\chi_1(x_1)^2|\frac{1}{r_{12}}|\chi_2(x_2)^2|dx_1dx_2$
+- Exchange: $K = \int \chi_1^*(x_1)\,\chi_2(x_2)\,\frac{1}{r_{12}}\,\chi_1(x_2)\,\chi_2(x_1)\,dx_1\,dx_2$
 
-
+- $x = (\mathbf{r}, \sigma): space + spin$
+- $r_{12} = |\mathbf{r}_1 - \mathbf{r}_2|$
+- $\chi_i(x)$: **spin-orbitals** which is defined by $\chi_i = \phi_i\cdot \alpha$
 
 So, for exchange behavior for electron orbitals with inverse spin, the exchange term will be zero.
+
+
 
 ## Variational method
 
@@ -83,8 +87,8 @@ $$
 
 So far, we use variational method that expand the the wave function $\Psi$ in schordinger equations to exact linear combination of $\sum_ic_i\Psi_i$ and use Slater determinant to get trial wave function, $\Psi_i$ also is $\chi_i$ in Hartree-Fock, but what is the shape of spin-orbital $\chi_i$, Roothaan suggested that one can approximate the $\chi_i(x_1)$ as a linear combination of atomic orbitals (LCAO), where the atomic orbitals take the shape of a hydrogen-like orbital (s, p, d, f orbitals):
 $$
-\mathcal{X_i}=\sum C_{ui}\psi_u\\
-\hat{F}(x_1)\mathcal{X_i} =\epsilon_i\mathcal{X_i}(x_1)\\
+\chi_i=\sum C_{ui}\psi_u\\
+\hat{F}(x_1)\chi_i =\epsilon_i\chi_i(x_1)\\
 \Rightarrow \hat{F}(x_1)\sum C_{ui}\psi_u = \epsilon_i\sum C_{ui}\psi_u
 $$
 
